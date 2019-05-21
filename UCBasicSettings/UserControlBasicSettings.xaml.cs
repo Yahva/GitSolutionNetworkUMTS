@@ -85,8 +85,9 @@ namespace UCBasicSettings
 
         private void Button_Click_UpdateSourceDownlink(object sender, RoutedEventArgs e)
         {
-            BindingExpression bex = SpinEdit_DirectChannel.GetBindingExpression(SpinEdit.TextProperty);
-            
+            MultiBindingExpression mbex = BindingOperations.GetMultiBindingExpression(SpinEdit_DirectChannel, SpinEdit.TextProperty);
+            if (mbex != null)
+                mbex.UpdateSource();
         }
     }
     public class LegitimateOperator
