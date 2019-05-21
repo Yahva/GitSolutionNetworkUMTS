@@ -1,0 +1,393 @@
+﻿<UserControl x:Class="UCBasicSettings.UserControlBasicSettings"            
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UCBasicSettings"
+             xmlns:sw="clr-namespace:SliderWeakening;assembly=SliderWeakening"
+             xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettings.Localization;assembly=LocalizationBasicAndAdditionalSettings"  
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             mc:Ignorable="d" 
+             x:Name="root"
+             d:DesignHeight="400" d:DesignWidth="600" >
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="CollectionLegitimateOperators" Source="{Binding ElementName=root, Path=ListLegitimateOperators}" />
+    </UserControl.Resources>
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Foreground="Blue" Text="{l:Localization Key=Operator}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Right" Margin="4 5" VerticalAlignment="Center" Text="MCC"/>
+                    <dxe:SpinEdit Grid.Column="1"
+                                  AllowDefaultButton="False" 
+                                  Mask="D" MaskType="Numeric" 
+                                  MinValue="0" MaxValue="999" MaxLength="3"
+                                  AllowRoundOutOfRangeValue="True"
+                                  HorizontalContentAlignment="Left"
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MCC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Right" Margin="4 5" VerticalAlignment="Center" Text="MNC"/>
+                    <dxe:SpinEdit Grid.Column="3"
+                                  AllowDefaultButton="False" 
+                                  Mask="D" MaskType="Numeric" 
+                                  MinValue="0" MaxValue="99" MaxLength="2"
+                                  AllowRoundOutOfRangeValue="True"
+                                  HorizontalContentAlignment="Left"
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MNC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+                                  SelectedIndex="0"  Margin="2 5 0 5" 
+                                  SelectionChanged="ComboBox_Selected_LegitimateOperator"
+                                  x:Name="ComboBox_ListLegitimateOperators">
+                        <ComboBox.ItemsSource>
+                            <CompositeCollection>
+                                <ComboBoxItem>
+                                    <TextBlock Text="{l:Localization Key=not_defined}"/>
+                                </ComboBoxItem>
+                                <CollectionContainer Collection="{Binding Source={StaticResource CollectionLegitimateOperators}}" />
+                            </CompositeCollection>
+                        </ComboBox.ItemsSource>
+                    </ComboBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Foreground="Blue" Text="{l:Localization Key=identifiers}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="LAC" />
+                    <CheckBox Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionLAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <dxe:SpinEdit Grid.Column="2" Margin="4 5"
+                                  AllowDefaultButton="False" 
+                                  Mask="D" MaskType="Numeric" 
+                                  MinValue="0" MaxValue="99999999" MaxLength="8"
+                                  AllowRoundOutOfRangeValue="True"
+                                  HorizontalContentAlignment="Left"
+                                  AllowNullInput="True">
+                        <dxe:SpinEdit.Style>
+                            <Style TargetType="dxe:SpinEdit">
+                                <Style.Setters>
+                                    <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.LAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionLAC}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
+                                        <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </dxe:SpinEdit.Style>
+                    </dxe:SpinEdit>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="CID" />
+                    <CheckBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionCID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <dxe:SpinEdit Grid.Row="1" Grid.Column="2" Margin="4 5"
+                                  AllowDefaultButton="False" 
+                                  Mask="D" MaskType="Numeric" 
+                                  MinValue="0" MaxValue="99999999" MaxLength="8"
+                                  AllowRoundOutOfRangeValue="True"
+                                  HorizontalContentAlignment="Left"
+                                  AllowNullInput="True">
+                        <dxe:SpinEdit.Style>
+                            <Style TargetType="dxe:SpinEdit">
+                                <Style.Setters>
+                                    <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionCID}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
+                                        <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </dxe:SpinEdit.Style>
+                    </dxe:SpinEdit>
+                </Grid>
+            </GroupBox>
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Foreground="Blue" Text="{l:Localization Key=transmitter}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=mode}"/>
+                    <ComboBox Grid.Column="1"
+                              ItemsSource="{Binding Path=ListMode}"
+                              SelectedItem="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Mode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{l:Localization KeyBinding={Binding}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=attenuation}"/>
+                    <sw:UserControlSlider Grid.Column="1" Grid.Row="1" Margin="0 5" ValueBack="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Attenuation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=ms_power}"/>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <dxe:TextEdit Grid.Column="1" Grid.ColumnSpan="2" Tag="{l:Localization Key=autoselect}" Text="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}">
+                            <dxe:TextEdit.Style>
+                                <Style TargetType="dxe:TextEdit">
+                                    <Style.Setters>
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </dxe:TextEdit.Style>
+                        </dxe:TextEdit>
+                        <dxe:SpinEdit Grid.Column="1" Width="50" Margin="4 2"
+                                      Mask="D" MaskType="Numeric" 
+                                      MinValue="-10" MaxValue="50" MaxLength="2"
+                                      AllowRoundOutOfRangeValue="True"
+                                      HorizontalContentAlignment="Left"
+                                      Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}">
+                            <dxe:SpinEdit.Style>
+                                <Style TargetType="dxe:SpinEdit">
+                                    <Style.Setters>
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </dxe:SpinEdit.Style>
+                        </dxe:SpinEdit>
+                        <TextBlock Grid.Column="2" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock.Resources>
+                                <local:MSPowerIndBmConverter x:Key="MSPowerIndBmConverter"/>
+                            </TextBlock.Resources>
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Setters>
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
+                                        <Setter Property="Tag">
+                                            <Setter.Value>
+                                                <l:Localization Key="show_dBm">
+                                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MSPower" Converter="{StaticResource MSPowerIndBmConverter}" />
+                                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MSPower" />
+                                                </l:Localization>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Foreground="Blue" Text="{l:Localization Key=adjustment}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="dxe:SpinEdit">
+                            <Setter Property="Margin" Value="4 5"/>
+                        </Style>
+                    </Grid.Resources>
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{l:Localization Key=start_search_area}" />
+                    <dxe:SpinEdit Grid.Row="0" Grid.Column="1" 
+                                  AllowDefaultButton="False" 
+                                  Mask="D" MaskType="Numeric" 
+                                  MinValue="0" MaxValue="999999" MaxLength="6"
+                                  AllowRoundOutOfRangeValue="True"
+                                  HorizontalContentAlignment="Left"
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.StartSearchArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="{l:Localization Key=distance_correction}" />
+                    <dxe:SpinEdit Grid.Row="1" Grid.Column="1" 
+                                  AllowDefaultButton="False" 
+                                  Mask="D" MaskType="Numeric" 
+                                  MinValue="0" MaxValue="999999" MaxLength="6"
+                                  AllowRoundOutOfRangeValue="True"
+                                  HorizontalContentAlignment="Left"
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.DistanceСorrection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </GroupBox>
+            <CheckBox Margin="2 10 0 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.UseGPRS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="{l:Localization Key=use_GPRS}"/>
+            <!--<TextBlock  Text="{Binding ElementName=root, Path=HasError}"/>-->
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+            <GroupBox>
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Blue" Text="{l:Localization Key=redirection_to_GSM}"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <ComboBox Grid.Row="0" 
+                              ItemsSource="{Binding Path=ListRedirection}"
+                              SelectedItem="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Redirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{l:Localization KeyBinding={Binding}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    
+                    <GroupBox Margin="0 5" Grid.Row="1">
+                        <GroupBox.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox x:Name="CheckBox_UseTimeSlot" Margin="0 0 5 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelRedirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Foreground="Blue" Text="{l:Localization Key=frequency_channel_redirection}"/>
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <GroupBox.Style>
+                            <Style TargetType="GroupBox">
+                                <Style.Setters>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Redirection}" Value="TurnedOff">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </GroupBox.Style>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Style.Setters>
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelRedirection}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                            <CheckBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="4 5" 
+                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      Content="{l:Localization Key=set_specify_frequency_channel}"/>
+
+                            <DockPanel  HorizontalAlignment="Stretch" Margin="5 5">
+                                <DockPanel.Style>
+                                    <Style TargetType="DockPanel">
+                                        <Style.Setters>
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </Style.Setters>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DockPanel.Style>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=frequensy_channel}"/>
+                                <dxe:SpinEdit  Grid.Column="1" Margin="4 5"
+                                               AllowDefaultButton="False" 
+                                               Mask="D" MaskType="Numeric" 
+                                               MinValue="0" MaxValue="1023" MaxLength="4"
+                                               AllowRoundOutOfRangeValue="True"
+                                               HorizontalContentAlignment="Left"
+                                               AllowNullInput="True" 
+                                               IsEnabledChanged="ClearInvalidSpinEdit">
+                                    <dxe:SpinEdit.Value>
+                                        <Binding ElementName="root" Path="CurrentBasicSettingsInfo.FrequensyChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
+                                            <Binding.ValidationRules>
+                                                <local:FrequencyRule ValidatesOnTargetUpdated="True"/>
+                                                <ExceptionValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </dxe:SpinEdit.Value>
+                                </dxe:SpinEdit>
+                            </DockPanel>
+                            <DockPanel  HorizontalAlignment="Stretch" Margin="5 5">
+                                <DockPanel.Style>
+                                    <Style TargetType="DockPanel">
+                                        <Style.Setters>
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </Style.Setters>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DockPanel.Style>
+                                <Button Content="GSM"/>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=frequensy_channel}"/>
+                            </DockPanel>
+                        </StackPanel>                                                      
+                    </GroupBox>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

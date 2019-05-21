@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1624379-1FC7-491B-B319-9BE9D744785F}</ProjectGuid>
+    <ProjectGuid>{B6498D0C-A4CE-4E82-A7EA-955DC5ED42A3}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SolutionNetworkUMTS</RootNamespace>
-    <AssemblyName>SolutionNetworkUMTS</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>UCMainForBasicandAdditionalSettings</RootNamespace>
+    <AssemblyName>UCMainForBasicandAdditionalSettings</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LocalizationBasicAndAdditionalSettings">
+      <HintPath>..\LocalizationBasicAndAdditionalSettings\bin\Debug\LocalizationBasicAndAdditionalSettings.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -44,17 +46,24 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UCAdditionalSettings">
+      <HintPath>..\UCAdditionalSettings\bin\Debug\UCAdditionalSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="UCBasicSettings">
+      <HintPath>..\UCBasicSettings\bin\Debug\UCBasicSettings.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UserControl1.xaml">
+    <Page Include="UCMainForBasicandAdditionalSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="VMUCMainForBasicandAdditionalSettings.cs" />
+    <Compile Include="UCMainForBasicandAdditionalSettings.xaml.cs">
+      <DependentUpon>UCMainForBasicandAdditionalSettings.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -81,6 +90,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\icon50x50_options_black.png" />
+    <Resource Include="Icons\icon50x50_options_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
