@@ -54,7 +54,18 @@ namespace UCBasicSettings
         private bool _useGPRS;
         public bool UseGPRS { get { return _useGPRS; } set { _useGPRS = value; OnPropertyChanged(); } }
 
-        
+        #region Частотные каналы
+        private bool _isEnabledFrequencyChannelAutoselect;
+        private int _directChannel;
+        private int _reverseChannel;
+        private int _psc;
+
+        public bool IsEnabledFrequencyChannelAutoselect { get { return _isEnabledFrequencyChannelAutoselect; } set { _isEnabledFrequencyChannelAutoselect = value; OnPropertyChanged(); } }      
+        public int DirectChannel { get { return _directChannel; } set { _directChannel = value; OnPropertyChanged(); } }
+        public int ReverseChannel { get { return _reverseChannel; } set { _reverseChannel = value; OnPropertyChanged(); } }
+        public int PSC { get { return _psc; } set { _psc = value; OnPropertyChanged(); } }
+        #endregion
+
         #region Перенаправление на GSM
         private bool _isEnabledFrequencyChannelRedirection;
         private TypeRedirection _redirection;

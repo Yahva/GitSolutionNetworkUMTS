@@ -61,7 +61,13 @@ namespace UCMainForBasicandAdditionalSettings
                 StartSearchArea = 156,
                 DistanceСorrection = 178,
                 #endregion
-                UseGPRS = true
+                UseGPRS = true,
+
+                #region Частотные каналы
+                DirectChannel = 0,
+                ReverseChannel = 0,
+                PSC = 0
+                #endregion
             };
             ((UserControlBasicSettings)_listUC[EnumUC.UCBasicSettings]).ListLegitimateOperators = new List<LegitimateOperator>()
             {

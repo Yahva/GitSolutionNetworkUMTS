@@ -148,13 +148,13 @@
     <value>Autoselect</value>
   </data>
   <data name="distance_correction" xml:space="preserve">
-    <value>distance_correction</value>
+    <value>Correction of the distance, m</value>
   </data>
   <data name="frequency_channel_redirection" xml:space="preserve">
-    <value>Frequency channel edirection</value>
+    <value>Frequency channel forwarding</value>
   </data>
   <data name="frequensy_channel" xml:space="preserve">
-    <value>frequensy_channel</value>
+    <value>Frequensy channel</value>
   </data>
   <data name="identifiers" xml:space="preserve">
     <value>Identifiers</value>
@@ -163,31 +163,31 @@
     <value>Mode</value>
   </data>
   <data name="ms_power" xml:space="preserve">
-    <value>ms_power</value>
+    <value>Max. powerful. dBm</value>
   </data>
   <data name="not_defined" xml:space="preserve">
     <value>Not defined</value>
   </data>
-  <data name="OnReceeiptIdentifiers_availabilitOnReceeiptIdentifiers_availability" xml:space="preserve">
-    <value>OnReceeiptIdentifiers_availability</value>
+  <data name="OnReceeiptIdentifiers_availability" xml:space="preserve">
+    <value>On receeipt identifiers - availability</value>
   </data>
   <data name="OnReceiptIdentifiers_always" xml:space="preserve">
-    <value>OnReceiptIdentifiers_always</value>
+    <value>On receipt identifiers - always</value>
   </data>
   <data name="Operator" xml:space="preserve">
     <value>Operator</value>
   </data>
   <data name="redirection_to_GSM" xml:space="preserve">
-    <value>redirection_to_GSM</value>
+    <value>Redirection to GSM</value>
   </data>
   <data name="set_specify_frequency_channel" xml:space="preserve">
-    <value>set_specify_frequency_channel</value>
+    <value>Specify the frequency channel manually</value>
   </data>
   <data name="Standard" xml:space="preserve">
     <value>Standard</value>
   </data>
   <data name="start_search_area" xml:space="preserve">
-    <value>start_search_area</value>
+    <value>Start the search area, m</value>
   </data>
   <data name="Suppression" xml:space="preserve">
     <value>Suppression</value>
@@ -196,12 +196,27 @@
     <value>Transmitter</value>
   </data>
   <data name="TurnedOff" xml:space="preserve">
-    <value>TurnedOff</value>
+    <value>Turned Off</value>
   </data>
   <data name="use_GPRS" xml:space="preserve">
     <value>Usese GPRS in job</value>
   </data>
   <data name="WithoutObtainingIDs" xml:space="preserve">
-    <value>WithoutObtainingID</value>
+    <value>Without obtaining IDs</value>
+  </data>
+  <data name="auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="direct_channel" xml:space="preserve">
+    <value>Downlink channel</value>
+  </data>
+  <data name="frequency_change_model" xml:space="preserve">
+    <value>Operating mode with change of frequently</value>
+  </data>
+  <data name="frequency_channels" xml:space="preserve">
+    <value>Frequency channels</value>
+  </data>
+  <data name="reverse_channel" xml:space="preserve">
+    <value>Uplink channel</value>
   </data>
 </root>

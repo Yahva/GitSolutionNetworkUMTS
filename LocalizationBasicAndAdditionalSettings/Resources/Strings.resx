@@ -204,4 +204,19 @@
   <data name="WithoutObtainingIDs" xml:space="preserve">
     <value>Без получения идентификатора</value>
   </data>
+  <data name="auto" xml:space="preserve">
+    <value>Автовыбор</value>
+  </data>
+  <data name="direct_channel" xml:space="preserve">
+    <value>Прямой канал</value>
+  </data>
+  <data name="frequency_change_model" xml:space="preserve">
+    <value>Режим работы со сменой частот</value>
+  </data>
+  <data name="frequency_channels" xml:space="preserve">
+    <value>Частотные каналы</value>
+  </data>
+  <data name="reverse_channel" xml:space="preserve">
+    <value>Обратный канал</value>
+  </data>
 </root>

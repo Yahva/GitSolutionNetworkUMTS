@@ -97,6 +97,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Автовыбор.
+        /// </summary>
+        internal static string auto {
+            get {
+                return ResourceManager.GetString("auto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Автоподбор.
         /// </summary>
         internal static string autoselect {
@@ -124,6 +133,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Прямой канал.
+        /// </summary>
+        internal static string direct_channel {
+            get {
+                return ResourceManager.GetString("direct_channel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Коррекция расстояния, м.
         /// </summary>
         internal static string distance_correction {
@@ -142,11 +160,29 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Режим работы со сменой частот.
+        /// </summary>
+        internal static string frequency_change_model {
+            get {
+                return ResourceManager.GetString("frequency_change_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Частотный канал перенаправления.
         /// </summary>
         internal static string frequency_channel_redirection {
             get {
                 return ResourceManager.GetString("frequency_channel_redirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Частотные каналы.
+        /// </summary>
+        internal static string frequency_channels {
+            get {
+                return ResourceManager.GetString("frequency_channels", resourceCulture);
             }
         }
         
@@ -228,6 +264,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         internal static string redirection_to_GSM {
             get {
                 return ResourceManager.GetString("redirection_to_GSM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обратный канал.
+        /// </summary>
+        internal static string reverse_channel {
+            get {
+                return ResourceManager.GetString("reverse_channel", resourceCulture);
             }
         }
         
