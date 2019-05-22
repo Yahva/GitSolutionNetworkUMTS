@@ -219,4 +219,10 @@
   <data name="reverse_channel" xml:space="preserve">
     <value>Обратный канал</value>
   </data>
+  <data name="direct_сhannel_number" xml:space="preserve">
+    <value>Номер прямого канала</value>
+  </data>
+  <data name="operating_time_frequency" xml:space="preserve">
+    <value>Время работы на частоте, мм:сс</value>
+  </data>
 </root>

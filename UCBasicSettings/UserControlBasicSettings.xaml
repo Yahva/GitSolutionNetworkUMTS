@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="UCBasicSettings.UserControlBasicSettings"            
+﻿<UserControl xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  x:Class="UCBasicSettings.UserControlBasicSettings"            
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,6 +9,7 @@
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
              mc:Ignorable="d" 
              x:Name="root"
+             Validation.Error="UserControl_HasError"   
              d:DesignHeight="400" d:DesignWidth="600" >
     <UserControl.Resources>
         <CollectionViewSource x:Key="CollectionLegitimateOperators" Source="{Binding ElementName=root, Path=ListLegitimateOperators}" />
@@ -275,7 +276,7 @@
             </GroupBox>
             <CheckBox Margin="2 10 0 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.UseGPRS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                       Content="{l:Localization Key=use_GPRS}"/>
-            <!--<TextBlock  Text="{Binding ElementName=root, Path=HasError}"/>-->
+            <TextBlock  Text="{Binding ElementName=root, Path=HasError}"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
             <GroupBox Margin="0 5">
@@ -288,6 +289,65 @@
                     <CheckBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="4 5" 
                                       IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                       Content="{l:Localization Key=frequency_change_model}"/>
+                    <StackPanel>
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <!--<Style.Setters>
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style.Setters>-->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <DockPanel LastChildFill="False" Margin="4 5">
+                            <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=operating_time_frequency}"/>
+                            <dxe:DateEdit DockPanel.Dock="Right" Width="80" VerticalAlignment="Center" Margin="4 5"
+                                          Mask="mm:ss" 
+                                          DateTime="00:00" 
+                                          DisplayFormatString="mm:ss" 
+                                          MaskUseAsDisplayFormat="True">
+                                <dxe:DateEdit.StyleSettings>
+                                    <dxe:DateEditPickerStyleSettings/>
+                                </dxe:DateEdit.StyleSettings>
+                            </dxe:DateEdit>
+                        </DockPanel>
+                        <StackPanel Grid.Column="1" Margin="4 5" Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Width" Value="25"/>
+                                    <Setter Property="Height" Value="25"/>
+                                    <Setter Property="Margin" Value="0 0 5 0"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Command="{Binding AddRoutingArgumentsCommand}">
+                                <Image Source="Icons/icons50x50_add.png" />
+                            </Button>
+                            <Button Command="{Binding RemoveRoutingArgumentsCommand}"
+                                    CommandParameter="{Binding ElementName=DataGrid_RoutingArguments, Path=SelectedItem}">
+                                <Image Source="Icons/icons50x50_remove.png" />
+                            </Button>
+                        </StackPanel>
+                        <dxg:GridControl AutoGenerateColumns="KeepOld"  Height="200" ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC}" >
+                            <dxg:GridControl.Columns>
+                                <dxg:GridColumn FieldName="{l:Localization Key=direct_сhannel_number}" Width="Auto">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings/>
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn FieldName="PSC" Width="Auto">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings/>
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+                            </dxg:GridControl.Columns>
+                            <dxg:GridControl.View>
+                                <dxg:TableView/>
+                            </dxg:GridControl.View>
+                        </dxg:GridControl>
+                    </StackPanel>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -299,14 +359,31 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Style.Setters>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
                         <Grid.Resources>
-                            <local:GetFirstSetSecondConverter x:Key="GetFirstSetSecondConverter" />
+                            <local:DownlinkToUplinkConverter x:Key="DownlinkToUplinkConverter" />
+                            <local:DownlinkToCommonNameConverter x:Key="DownlinkToCommonNameConverter"/>
                         </Grid.Resources>
                         <CheckBox Grid.Row="0" Grid.Column="0" Margin="4 5" 
                                   IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelAutoselect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                   Content="{l:Localization Key=auto}" Grid.ColumnSpan="2"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Margin="4 5" VerticalAlignment="Center" Text="Band:" />
-
+                        <DockPanel  Grid.Row="0" Grid.Column="1" Margin="4 5" VerticalAlignment="Center">
+                            <TextBlock Text="Band: "/>
+                            <TextBlock Foreground="DarkOrange"
+                                       Text="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.DirectChannel, Mode=OneWay, Converter={StaticResource DownlinkToCommonNameConverter}}" />
+                        </DockPanel>
+                       
                         <TextBlock Grid.Row="1" Grid.Column="0" Margin="4,8" VerticalAlignment="Center" Text="{l:Localization Key=direct_channel}" Grid.ColumnSpan="2" />
                         <dxe:SpinEdit Grid.Row="1" Grid.Column="1" Margin="4 5" x:Name="SpinEdit_DirectChannel"
                                       AllowDefaultButton="False" 
@@ -320,7 +397,7 @@
                                     <Style.Setters>
                                         <Setter Property="Text">
                                         <Setter.Value>
-                                                <MultiBinding UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource GetFirstSetSecondConverter}" >
+                                                <MultiBinding UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource DownlinkToUplinkConverter}" >
                                                     <Binding ElementName="root" Path="CurrentBasicSettingsInfo.DirectChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
                                                     <Binding ElementName="root" Path="CurrentBasicSettingsInfo.ReverseChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
                                                 </MultiBinding>
@@ -340,38 +417,49 @@
                         </dxe:SpinEdit>
 
                         <TextBlock Grid.Row="2" Grid.Column="0" Margin="4,8" VerticalAlignment="Center" Text="{l:Localization Key=reverse_channel}" Grid.ColumnSpan="2" />
+                        
                         <Grid Grid.Row="2" Grid.Column="1" Margin="4 5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <dxe:SpinEdit Grid.Column="0"
-                                      AllowDefaultButton="False" 
-                                      Mask="D" MaskType="Numeric" 
-                                      MinValue="0" MaxValue="999999" MaxLength="6"
-                                      AllowRoundOutOfRangeValue="True"
-                                      HorizontalContentAlignment="Left"
-                                      AllowNullInput="True">
+                            <Grid.Resources>
+                               
+                            </Grid.Resources>
+                            <local:Proxy In="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.DirectChannel, Mode=OneWay}" 
+                                         Out="{Binding ElementName=SpinEdit_UplinkRule_Text, Path=Downlink}" />
+                            <dxe:SpinEdit Grid.Column="0" x:Name="SpinEdit_ReverseChannel"
+                                          AllowDefaultButton="False"
+                                          Mask="D" MaskType="Numeric" 
+                                          MinValue="0" MaxValue="999999" MaxLength="6"
+                                          AllowRoundOutOfRangeValue="True"
+                                          HorizontalContentAlignment="Left"
+                                          AllowNullInput="True" NullText="{l:Localization Key=autoselect}"
+                                          IsEnabledChanged="ClearInvalidSpinEdit_ReverseChannel">
                                 <dxe:SpinEdit.Style>
                                     <Style TargetType="dxe:SpinEdit">
                                         <Style.Setters>
-                                            <Setter Property="Text"  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.ReverseChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
                                             <Setter Property="IsEnabled" Value="True"/>
                                         </Style.Setters>
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
                                                 <Setter Property="IsEnabled" Value="False"/>
-                                                <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
-                                                <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </dxe:SpinEdit.Style>
+                                <dxe:SpinEdit.Value>
+                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.ReverseChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
+                                        <Binding.ValidationRules>
+                                            <local:UplinkRule x:Name="SpinEdit_UplinkRule_Text" />
+                                            <ExceptionValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </dxe:SpinEdit.Value>
                             </dxe:SpinEdit>
-                            <Button Grid.Column="1" Margin="4 0 0 0" Width="30" Click="Button_Click_UpdateSourceDownlink"/>
+                            <Button Grid.Column="1" Margin="4 0 0 0" Width="30" IsEnabled="{Binding ElementName=SpinEdit_ReverseChannel, Path=(Validation.HasError)}" Click="Button_Click_UpdateSourceDownlink"/>
                         </Grid>
                        
-
                         <TextBlock Grid.Row="3" Grid.Column="0" Margin="4,8" VerticalAlignment="Center" Text="PSC" Grid.ColumnSpan="2" />
                         <dxe:SpinEdit Grid.Row="3" Grid.Column="1" Margin="4 5"
                                       AllowDefaultButton="False" 
@@ -478,11 +566,12 @@
                                                AllowRoundOutOfRangeValue="True"
                                                HorizontalContentAlignment="Left"
                                                AllowNullInput="True" 
+                                               IsEnabled="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}"
                                                IsEnabledChanged="ClearInvalidSpinEdit">
                                     <dxe:SpinEdit.Value>
                                         <Binding ElementName="root" Path="CurrentBasicSettingsInfo.FrequensyChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
                                             <Binding.ValidationRules>
-                                                <local:FrequencyRule ValidatesOnTargetUpdated="True"/>
+                                                <local:FrequencyRule/>
                                                 <ExceptionValidationRule/>
                                             </Binding.ValidationRules>
                                         </Binding>

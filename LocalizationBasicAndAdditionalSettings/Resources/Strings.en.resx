@@ -219,4 +219,7 @@
   <data name="reverse_channel" xml:space="preserve">
     <value>Uplink channel</value>
   </data>
+  <data name="direct_сhannel_number" xml:space="preserve">
+    <value>direct_сhannel_umber</value>
+  </data>
 </root>

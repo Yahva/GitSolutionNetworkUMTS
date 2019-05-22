@@ -31,10 +31,28 @@ namespace UCBasicSettings
             BindingExpression bex = (sender as SpinEdit).GetBindingExpression(SpinEdit.ValueProperty);
             ClearInvalidValue((bool)e.NewValue, (bool)e.OldValue, bex);
         }
+
+        private void ClearInvalidSpinEdit_ReverseChannel(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            BindingExpression bex = (sender as SpinEdit).GetBindingExpression(SpinEdit.ValueProperty);
+            if (bex != null)
+                if ((bool)e.NewValue)
+                {
+                    (sender as SpinEdit).Text = "0";
+                    bex.UpdateTarget();
+                    bex.UpdateSource();
+                }
+                else if ((bool)e.OldValue)
+                {
+                    (sender as SpinEdit).Text = null;
+                    Validation.ClearInvalid(bex);
+                }
+        }     
+        
         private void ClearInvalidValue(bool NewValue, bool OldValue, BindingExpression bex)
         {
             if (bex != null)
-                if (NewValue) bex.UpdateSource();
+                if (NewValue)  bex.UpdateSource();
                 else if (OldValue) Validation.ClearInvalid(bex);
         }
         #endregion
@@ -83,57 +101,29 @@ namespace UCBasicSettings
             }
         }
 
+        #region Validation
+        private bool IsValid(DependencyObject obj)
+        {
+            return !Validation.GetHasError(obj) &&
+            LogicalTreeHelper.GetChildren(obj)
+            .OfType<DependencyObject>()
+            .All(IsValid);
+        }
+        private void UserControl_HasError(object sender, ValidationErrorEventArgs e)
+        {
+            HasError = !IsValid(this);
+        }
+        #endregion
+
         private void Button_Click_UpdateSourceDownlink(object sender, RoutedEventArgs e)
         {
             MultiBindingExpression mbex = BindingOperations.GetMultiBindingExpression(SpinEdit_DirectChannel, SpinEdit.TextProperty);
             if (mbex != null)
                 mbex.UpdateSource();
         }
-    }
-    public class LegitimateOperator
-    {
-        public int MCC { get; set; }
-        public int MNC { get; set; }
 
-        public string Сountry { get; set; }
-        public string MobileOperator { get; set; }
-
-        public override string ToString()
+        public static int DownlinkToUplinkConveter(int valueDownlink)
         {
-            return String.Format(Сountry + "-" + MobileOperator + " ({0:D3} {1:D2})", MCC, MNC);
-        }
-    }
-    public class MSPowerIndBmConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value != null && value != DependencyProperty.UnsetValue)
-            {
-                int valueMSPover = (int)value;
-                double result = (0.001 * Math.Pow(10, ((double)valueMSPover / 10)));
-                result = Math.Round(result,4);
-                return result;
-            }
-
-            return 0;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return DependencyProperty.UnsetValue;
-        }
-    }
-
-    public class GetFirstSetSecondConverter : IMultiValueConverter
-    {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
-        {
-            return values[0].ToString();
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-        {
-            int valueDownlink = Int32.Parse((string)value);
             int result, diff;
             if (((valueDownlink >= 10562) && (valueDownlink <= 10838)))
             {
@@ -241,7 +231,165 @@ namespace UCBasicSettings
                 result = 0;
             }
 
-            return new object[2] { valueDownlink, result };
+            return result;
+        }
+
+        public static string GetCommonNmaeByDownlink(int valueDownlink)
+        {
+            string result = "UMTS Operating Band";
+            if (((valueDownlink >= 10562) && (valueDownlink <= 10838)))
+            {
+                result += " I"+" (IMT)";
+            }
+            else if (((valueDownlink >= 9662) && (valueDownlink <= 9938)))
+            {
+                result += " II" + " (U.S. PCS)";
+            }
+            else if (((valueDownlink >= 1162) && (valueDownlink <= 1513)))
+            {
+                result += " III" + " (DCS)";
+            }
+            else if (((valueDownlink >= 1537) && (valueDownlink <= 1738)))
+            {
+                result += " IV" + " (AWS)";
+            }
+            else if (((valueDownlink >= 4357) && (valueDownlink <= 4458)))
+            {
+                result += " V" + " (CLR)";
+            }
+            else if (((valueDownlink >= 4387) && (valueDownlink <= 4413)))
+            {
+                result += " V" + " (CLR)";
+            }
+            else if (((valueDownlink >= 2237) && (valueDownlink <= 2563)))
+            {
+                result += " VII" + " (IMT-E)";
+            }
+            else if (((valueDownlink >= 2937) && (valueDownlink <= 3088)))
+            {
+                result += " VIII" + " (GSM)";
+            }
+            else if (((valueDownlink >= 9237) && (valueDownlink <= 9387)))
+            {
+                result += " IX";
+            }
+            else if (((valueDownlink >= 3112) && (valueDownlink <= 3388)))
+            {
+                result += " X";
+            }
+            else if (((valueDownlink >= 3712) && (valueDownlink <= 3787)))
+            {
+                result += " XI";
+            }
+            else if (((valueDownlink >= 3842) && (valueDownlink <= 3903)))
+            {
+                result += " XII" + " (SMH)";
+            }
+            else if (((valueDownlink >= 4017) && (valueDownlink <= 4043)))
+            {
+                result += " XIII" + " (SMH)";
+            }
+            else if (((valueDownlink >= 4117) && (valueDownlink <= 4143)))
+            {
+                result += " XIV" + " (SMH)";
+            }
+            else if (((valueDownlink >= 712) && (valueDownlink <= 763)))
+            {
+                result += " XIX";
+            }
+            else if (((valueDownlink >= 4512) && (valueDownlink <= 4638)))
+            {
+                result += " XX";
+            }
+            else if (((valueDownlink >= 862) && (valueDownlink <= 912)))
+            {
+                result += " XXI";
+            }
+            else if (((valueDownlink >= 4662) && (valueDownlink <= 5038)))
+            {
+                result += " XXI";
+            }
+            else if (((valueDownlink >= 5112) && (valueDownlink <= 5413)))
+            {
+                result += " XXV";
+            }
+            else if (((valueDownlink >= 5762) && (valueDownlink <= 5913)))
+            {
+                result += " XXVI" + " (ECLR)";
+            }
+            else
+            {
+                result = "Unknown";
+            }
+
+            return result;
+        }
+    }
+    public class LegitimateOperator
+    {
+        public int MCC { get; set; }
+        public int MNC { get; set; }
+
+        public string Сountry { get; set; }
+        public string MobileOperator { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format(Сountry + "-" + MobileOperator + " ({0:D3} {1:D2})", MCC, MNC);
+        }
+    }
+    public class MSPowerIndBmConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value != null && value != DependencyProperty.UnsetValue)
+            {
+                int valueMSPover = (int)value;
+                double result = (0.001 * Math.Pow(10, ((double)valueMSPover / 10)));
+                result = Math.Round(result,4);
+                return result;
+            }
+
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+    public class DownlinkToCommonNameConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value != null && value != DependencyProperty.UnsetValue)
+            {
+                int valueDownlink = (int)value;
+                return UserControlBasicSettings.GetCommonNmaeByDownlink(valueDownlink);
+            }
+
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+    public class DownlinkToUplinkConverter : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            return values[0].ToString();
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            int valueDownlink = 0;
+            Int32.TryParse((string)value, out valueDownlink);           
+            return new object[2] { valueDownlink, UserControlBasicSettings.DownlinkToUplinkConveter(valueDownlink) };
         }
     }
 }

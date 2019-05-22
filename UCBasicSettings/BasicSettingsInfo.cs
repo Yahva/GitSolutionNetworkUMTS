@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -59,11 +60,14 @@ namespace UCBasicSettings
         private int _directChannel;
         private int _reverseChannel;
         private int _psc;
+        public ObservableCollection<ItemChannelNumberAndPSC> _collectionItemChannelNumberAndPSC;
 
         public bool IsEnabledFrequencyChannelAutoselect { get { return _isEnabledFrequencyChannelAutoselect; } set { _isEnabledFrequencyChannelAutoselect = value; OnPropertyChanged(); } }      
         public int DirectChannel { get { return _directChannel; } set { _directChannel = value; OnPropertyChanged(); } }
         public int ReverseChannel { get { return _reverseChannel; } set { _reverseChannel = value; OnPropertyChanged(); } }
         public int PSC { get { return _psc; } set { _psc = value; OnPropertyChanged(); } }
+
+        public ObservableCollection<ItemChannelNumberAndPSC> CollectionItemChannelNumberAndPSC { get { return _collectionItemChannelNumberAndPSC; } set { _collectionItemChannelNumberAndPSC = value; OnPropertyChanged(); } }
         #endregion
 
         #region Перенаправление на GSM
@@ -89,6 +93,21 @@ namespace UCBasicSettings
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
        
+    }
+
+    public class ItemChannelNumberAndPSC : INotifyPropertyChanged
+    {
+        public int _directChannelNumber;
+        private int _psc;
+
+        public int DirectChannelNumber { get { return _directChannelNumber; } set { _directChannelNumber = value; OnPropertyChanged(); } }
+        public int PSC { get { return _psc; } set { _psc = value; OnPropertyChanged(); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
     }
 
     public enum TypeMode

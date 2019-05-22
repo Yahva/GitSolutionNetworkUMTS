@@ -142,6 +142,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Номер прямого канала.
+        /// </summary>
+        internal static string direct_сhannel_number {
+            get {
+                return ResourceManager.GetString("direct_сhannel_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Коррекция расстояния, м.
         /// </summary>
         internal static string distance_correction {
@@ -246,6 +255,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         internal static string OnReceiptIdentifiers_always {
             get {
                 return ResourceManager.GetString("OnReceiptIdentifiers_always", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Время работы на частоте, мм:сс.
+        /// </summary>
+        internal static string operating_time_frequency {
+            get {
+                return ResourceManager.GetString("operating_time_frequency", resourceCulture);
             }
         }
         
