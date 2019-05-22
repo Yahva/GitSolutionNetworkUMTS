@@ -233,7 +233,6 @@ namespace UCBasicSettings
 
             return result;
         }
-
         public static string GetCommonNmaeByDownlink(int valueDownlink)
         {
             string result = "UMTS Operating Band";
@@ -323,6 +322,23 @@ namespace UCBasicSettings
             }
 
             return result;
+        }
+
+        
+        private void Add_ItemChannelNumberAndPSC(object sender, RoutedEventArgs e)
+        {
+            AddDirectChannelWindow addDirectChannelWindow = new AddDirectChannelWindow(new ItemChannelNumberAndPSC());
+            if (addDirectChannelWindow.ShowDialog() == true)
+            {
+                ItemChannelNumberAndPSC itemChannelNumberAndPSC = addDirectChannelWindow.ItemChannelNumberAndPSC;
+                CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Add(itemChannelNumberAndPSC);
+            }
+        }
+        private void Delete_ItemChannelNumberAndPSC(object sender, RoutedEventArgs e)
+        {
+            if (GridControl_CollectionItemChannelNumberAndPSC.SelectedItem == null) return;
+            ItemChannelNumberAndPSC item = GridControl_CollectionItemChannelNumberAndPSC.SelectedItem as ItemChannelNumberAndPSC;
+            CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Remove(item);
         }
     }
     public class LegitimateOperator

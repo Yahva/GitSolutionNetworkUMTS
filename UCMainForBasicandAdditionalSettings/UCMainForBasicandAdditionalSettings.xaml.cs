@@ -1,6 +1,7 @@
 ﻿using LocalizationBasicAndAdditionalSettings.Localization;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +67,12 @@ namespace UCMainForBasicandAdditionalSettings
                 #region Частотные каналы
                 DirectChannel = 0,
                 ReverseChannel = 0,
-                PSC = 0
+                PSC = 0,
+                CollectionItemChannelNumberAndPSC = new ObservableCollection<ItemChannelNumberAndPSC>()
+                {
+                    new ItemChannelNumberAndPSC() { DirectChannelNumber = 900, PSC = 144},
+                    new ItemChannelNumberAndPSC() { DirectChannelNumber = 885, PSC = 144}
+                }
                 #endregion
             };
             ((UserControlBasicSettings)_listUC[EnumUC.UCBasicSettings]).ListLegitimateOperators = new List<LegitimateOperator>()

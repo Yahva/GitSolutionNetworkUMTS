@@ -292,9 +292,9 @@
                     <StackPanel>
                         <StackPanel.Style>
                             <Style TargetType="StackPanel">
-                                <!--<Style.Setters>
+                                <Style.Setters>
                                     <Setter Property="Visibility" Value="Collapsed"/>
-                                </Style.Setters>-->
+                                </Style.Setters>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
                                         <Setter Property="Visibility" Value="Visible"/>
@@ -322,24 +322,23 @@
                                     <Setter Property="Margin" Value="0 0 5 0"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Command="{Binding AddRoutingArgumentsCommand}">
+                            <Button Click="Add_ItemChannelNumberAndPSC">
                                 <Image Source="Icons/icons50x50_add.png" />
                             </Button>
-                            <Button Command="{Binding RemoveRoutingArgumentsCommand}"
-                                    CommandParameter="{Binding ElementName=DataGrid_RoutingArguments, Path=SelectedItem}">
+                            <Button Click="Delete_ItemChannelNumberAndPSC">
                                 <Image Source="Icons/icons50x50_remove.png" />
                             </Button>
                         </StackPanel>
-                        <dxg:GridControl AutoGenerateColumns="KeepOld"  Height="200" ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC}" >
+                        <dxg:GridControl AutoGenerateColumns="None" Name="GridControl_CollectionItemChannelNumberAndPSC"  Height="200" ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC}" >
                             <dxg:GridControl.Columns>
-                                <dxg:GridColumn FieldName="{l:Localization Key=direct_сhannel_number}" Width="Auto">
+                                <dxg:GridColumn  Header="{l:Localization Key=direct_сhannel_number}" FieldName="DirectChannelNumber" Width="Auto">
                                     <dxg:GridColumn.EditSettings>
-                                        <dxe:SpinEditSettings/>
+                                        <dxe:SpinEditSettings Mask="D" MaskType="Numeric" MinValue="0"/>
                                     </dxg:GridColumn.EditSettings>
                                 </dxg:GridColumn>
-                                <dxg:GridColumn FieldName="PSC" Width="Auto">
+                                <dxg:GridColumn Header="PSC" FieldName="PSC" Width="Auto">
                                     <dxg:GridColumn.EditSettings>
-                                        <dxe:SpinEditSettings/>
+                                        <dxe:SpinEditSettings Mask="D" MaskType="Numeric" MinValue="0"/>
                                     </dxg:GridColumn.EditSettings>
                                 </dxg:GridColumn>
                             </dxg:GridControl.Columns>

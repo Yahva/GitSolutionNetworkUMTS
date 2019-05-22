@@ -71,7 +71,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDirectChannelWindow.xaml.cs">
+      <DependentUpon>AddDirectChannelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BasicSettingsInfo.cs" />
+    <Page Include="AddDirectChannelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlBasicSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
