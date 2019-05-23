@@ -220,6 +220,57 @@
     <value>Uplink channel</value>
   </data>
   <data name="direct_сhannel_number" xml:space="preserve">
-    <value>direct_сhannel_umber</value>
+    <value>Downlink channel number</value>
+  </data>
+  <data name="operating_time_frequency" xml:space="preserve">
+    <value>Operating time on frequency, mm:ss</value>
+  </data>
+  <data name="channel_direction_finding" xml:space="preserve">
+    <value>Channel Direction Finding</value>
+  </data>
+  <data name="df" xml:space="preserve">
+    <value>DF</value>
+  </data>
+  <data name="df_version" xml:space="preserve">
+    <value>DF Version</value>
+  </data>
+  <data name="first_radio_ch_used_incoming_calls" xml:space="preserve">
+    <value>The first radio channel is used for incoming calls</value>
+  </data>
+  <data name="NotUsed" xml:space="preserve">
+    <value>Not used</value>
+  </data>
+  <data name="Version1" xml:space="preserve">
+    <value>Version 1.0</value>
+  </data>
+  <data name="Version2" xml:space="preserve">
+    <value>Version 2.0</value>
+  </data>
+  <data name="add_downlink_channel" xml:space="preserve">
+    <value>Add downlink channel</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="channel_number" xml:space="preserve">
+    <value>Channel Number</value>
+  </data>
+  <data name="IncomingCalls" xml:space="preserve">
+    <value>Incoming calls</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OutgoingCalls" xml:space="preserve">
+    <value>Outgoing calls</value>
+  </data>
+  <data name="radio_channels" xml:space="preserve">
+    <value>Radio channels</value>
+  </data>
+  <data name="Registrations" xml:space="preserve">
+    <value>Registrations</value>
+  </data>
+  <data name="use_cases" xml:space="preserve">
+    <value>Use Cases</value>
   </data>
 </root>

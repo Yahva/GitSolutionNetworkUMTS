@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UCAdditionalSettings;
 using UCBasicSettings;
 
 namespace UCMainForBasicandAdditionalSettings
@@ -32,7 +33,7 @@ namespace UCMainForBasicandAdditionalSettings
 
             _listUC = new Dictionary<EnumUC, UserControl>()
             {
-                { EnumUC.UCAdditionalSettings, new UCAdditionalSettings.UCAdditionalSettings() },
+                { EnumUC.UCAdditionalSettings, new UserControlAdditionalSettings() },
                 { EnumUC.UCBasicSettings, new UserControlBasicSettings() }
             };
 
@@ -82,6 +83,57 @@ namespace UCMainForBasicandAdditionalSettings
             };
             #endregion
 
+            #region Set UserControlAdditionalSettings
+            ((UserControlAdditionalSettings)_listUC[EnumUC.UCAdditionalSettings]).CurrentAdditionalSettingsInfo = new AdditionalSettingsInfo()
+            {
+                #region ПАМ
+                #endregion
+
+                #region Радиоканалы
+                IsEnabledRadioChannels = true,
+                ListRadioChannels = new List<RadioChannel>()
+                {
+                    new RadioChannel()
+                    {
+                        ChannelNumber = 0, ListUseCasesChannel = new List<UseCasesChannel>()
+                                                                 {
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.Registrations },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.OutgoingCalls },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.IncomingCalls }
+                                                                  }
+                    },
+                    new RadioChannel()
+                    {
+                        ChannelNumber = 1, ListUseCasesChannel = new List<UseCasesChannel>()
+                                                                 {
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.Registrations },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.OutgoingCalls },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.IncomingCalls }
+                                                                  }
+                    },
+                    new RadioChannel()
+                    {
+                        ChannelNumber = 2, ListUseCasesChannel = new List<UseCasesChannel>()
+                                                                 {
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.Registrations },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.OutgoingCalls },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.IncomingCalls }
+                                                                  }
+                    },
+                    new RadioChannel()
+                    {
+                        ChannelNumber = 3, ListUseCasesChannel = new List<UseCasesChannel>()
+                                                                 {
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.Registrations },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.OutgoingCalls },
+                                                                    new UseCasesChannel() { IsUse = true, TypeUseCase = TypeUseCase.IncomingCalls }
+                                                                  }
+                    },
+
+                }
+                #endregion
+            };
+            #endregion
         }
 
         private enum EnumUC

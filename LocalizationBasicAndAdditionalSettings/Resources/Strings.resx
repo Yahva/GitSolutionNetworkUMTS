@@ -225,4 +225,52 @@
   <data name="operating_time_frequency" xml:space="preserve">
     <value>Время работы на частоте, мм:сс</value>
   </data>
+  <data name="channel_direction_finding" xml:space="preserve">
+    <value>Канал пеленгования</value>
+  </data>
+  <data name="df" xml:space="preserve">
+    <value>ПАМ</value>
+  </data>
+  <data name="df_version" xml:space="preserve">
+    <value>Версия ПАМ</value>
+  </data>
+  <data name="first_radio_ch_used_incoming_calls" xml:space="preserve">
+    <value>Первый радиоканал используется под входящуюю связь</value>
+  </data>
+  <data name="NotUsed" xml:space="preserve">
+    <value>Не используется</value>
+  </data>
+  <data name="Version1" xml:space="preserve">
+    <value>Версия 1.0</value>
+  </data>
+  <data name="Version2" xml:space="preserve">
+    <value>Версия 2.0</value>
+  </data>
+  <data name="add_downlink_channel" xml:space="preserve">
+    <value>Добавление прямого канала</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="channel_number" xml:space="preserve">
+    <value>Номер канала</value>
+  </data>
+  <data name="IncomingCalls" xml:space="preserve">
+    <value>Входящая связь</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Ок</value>
+  </data>
+  <data name="OutgoingCalls" xml:space="preserve">
+    <value>Исходящая связь</value>
+  </data>
+  <data name="radio_channels" xml:space="preserve">
+    <value>Радиоканалы</value>
+  </data>
+  <data name="Registrations" xml:space="preserve">
+    <value>Регистрации</value>
+  </data>
+  <data name="use_cases" xml:space="preserve">
+    <value>Варианты использования</value>
+  </data>
 </root>

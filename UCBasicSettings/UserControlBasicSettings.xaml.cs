@@ -340,6 +340,7 @@ namespace UCBasicSettings
             ItemChannelNumberAndPSC item = GridControl_CollectionItemChannelNumberAndPSC.SelectedItem as ItemChannelNumberAndPSC;
             CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Remove(item);
         }
+
     }
     public class LegitimateOperator
     {
@@ -406,6 +407,25 @@ namespace UCBasicSettings
             int valueDownlink = 0;
             Int32.TryParse((string)value, out valueDownlink);           
             return new object[2] { valueDownlink, UserControlBasicSettings.DownlinkToUplinkConveter(valueDownlink) };
+        }
+    }
+
+    public class CorrectWidthConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value != null && value != DependencyProperty.UnsetValue)
+            {
+                double valueWidth = (double)value;
+                return (valueWidth > 1) ? (valueWidth - 1) : valueWidth;
+            }
+
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return DependencyProperty.UnsetValue;
         }
     }
 }

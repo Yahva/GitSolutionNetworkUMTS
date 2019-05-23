@@ -289,7 +289,7 @@
                     <CheckBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="4 5" 
                                       IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                       Content="{l:Localization Key=frequency_change_model}"/>
-                    <StackPanel>
+                    <StackPanel Orientation="Vertical" >
                         <StackPanel.Style>
                             <Style TargetType="StackPanel">
                                 <Style.Setters>
@@ -302,11 +302,14 @@
                                 </Style.Triggers>
                             </Style>
                         </StackPanel.Style>
+                        <StackPanel.Resources>
+                            <local:CorrectWidthConverter x:Key="CorrectWidthConverter"/>
+                        </StackPanel.Resources>
                         <DockPanel LastChildFill="False" Margin="4 5">
                             <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=operating_time_frequency}"/>
                             <dxe:DateEdit DockPanel.Dock="Right" Width="80" VerticalAlignment="Center" Margin="4 5"
                                           Mask="mm:ss" 
-                                          DateTime="00:00" 
+                                          DateTime="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.OperatingTimeFrequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                           DisplayFormatString="mm:ss" 
                                           MaskUseAsDisplayFormat="True">
                                 <dxe:DateEdit.StyleSettings>
@@ -329,21 +332,25 @@
                                 <Image Source="Icons/icons50x50_remove.png" />
                             </Button>
                         </StackPanel>
-                        <dxg:GridControl AutoGenerateColumns="None" Name="GridControl_CollectionItemChannelNumberAndPSC"  Height="200" ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC}" >
+
+                        <dxg:GridControl AutoGenerateColumns="None" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Panel}}, Path=ActualWidth, Converter={StaticResource CorrectWidthConverter}}"
+                                         Name="GridControl_CollectionItemChannelNumberAndPSC"  
+                                         Height="200" 
+                                         ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC}" >
                             <dxg:GridControl.Columns>
-                                <dxg:GridColumn  Header="{l:Localization Key=direct_сhannel_number}" FieldName="DirectChannelNumber" Width="Auto">
+                                <dxg:GridColumn  Header="{l:Localization Key=direct_сhannel_number}" FieldName="DirectChannelNumber">
                                     <dxg:GridColumn.EditSettings>
                                         <dxe:SpinEditSettings Mask="D" MaskType="Numeric" MinValue="0"/>
                                     </dxg:GridColumn.EditSettings>
                                 </dxg:GridColumn>
-                                <dxg:GridColumn Header="PSC" FieldName="PSC" Width="Auto">
+                                <dxg:GridColumn Header="PSC" FieldName="PSC">
                                     <dxg:GridColumn.EditSettings>
                                         <dxe:SpinEditSettings Mask="D" MaskType="Numeric" MinValue="0"/>
                                     </dxg:GridColumn.EditSettings>
                                 </dxg:GridColumn>
                             </dxg:GridControl.Columns>
                             <dxg:GridControl.View>
-                                <dxg:TableView/>
+                                <dxg:TableView AutoWidth="True" AllowColumnFiltering="False"/>
                             </dxg:GridControl.View>
                         </dxg:GridControl>
                     </StackPanel>

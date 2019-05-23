@@ -60,6 +60,7 @@ namespace UCBasicSettings
         private int _directChannel;
         private int _reverseChannel;
         private int _psc;
+        private DateTime _operatingTimeFrequency;
         public ObservableCollection<ItemChannelNumberAndPSC> _collectionItemChannelNumberAndPSC;
 
         public bool IsEnabledFrequencyChannelAutoselect { get { return _isEnabledFrequencyChannelAutoselect; } set { _isEnabledFrequencyChannelAutoselect = value; OnPropertyChanged(); } }      
@@ -67,6 +68,7 @@ namespace UCBasicSettings
         public int ReverseChannel { get { return _reverseChannel; } set { _reverseChannel = value; OnPropertyChanged(); } }
         public int PSC { get { return _psc; } set { _psc = value; OnPropertyChanged(); } }
 
+        public DateTime OperatingTimeFrequency { get { return _operatingTimeFrequency; } set { _operatingTimeFrequency = value; OnPropertyChanged(); } }
         public ObservableCollection<ItemChannelNumberAndPSC> CollectionItemChannelNumberAndPSC { get { return _collectionItemChannelNumberAndPSC; } set { _collectionItemChannelNumberAndPSC = value; OnPropertyChanged(); } }
         #endregion
 

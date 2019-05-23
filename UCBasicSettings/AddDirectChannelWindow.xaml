@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettings.Localization;assembly=LocalizationBasicAndAdditionalSettings" 
         xmlns:local="clr-namespace:UCBasicSettings"
-        mc:Ignorable="d"
-        Title="AddDirectChannelWindow" Height="160" Width="300" MinHeight="160">
+        mc:Ignorable="d" 
+        Title="{l:Localization add_downlink_channel}" Height="200" Width="350" MinHeight="160">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -15,7 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock>Номер прямого канала</TextBlock>
+        <TextBlock Margin="0 5" Text="{l:Localization Key=direct_сhannel_number}"/>
         <dxe:SpinEdit Grid.Row="1"  
                       AllowDefaultButton="False" 
                       Mask="D" MaskType="Numeric" 
@@ -24,7 +25,7 @@
                       HorizontalContentAlignment="Left"
                       Value="{Binding Path=DirectChannelNumber}" />
         
-        <TextBlock Grid.Row="2" Text="PSC"/>
+        <TextBlock Grid.Row="2" Margin="0 5" Text="PSC"/>
         <dxe:SpinEdit Grid.Row="3" 
                       AllowDefaultButton="False" 
                       Mask="D" MaskType="Numeric" 
@@ -34,8 +35,8 @@
                       Value="{Binding Path=PSC}" />
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Right" Margin="0,15,0,0">
-            <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="0,0,10,0">OK</Button>
-            <Button IsCancel="True" MinWidth="60">Отмена</Button>
+            <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="0,0,10,0" Content="{l:Localization Key=ok}"/>
+            <Button IsCancel="True" MinWidth="60" Content="{l:Localization Key=cancel}"/>
         </WrapPanel>
     </Grid>
 </Window>

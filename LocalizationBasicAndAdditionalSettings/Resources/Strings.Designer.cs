@@ -61,6 +61,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавление прямого канала.
+        /// </summary>
+        internal static string add_downlink_channel {
+            get {
+                return ResourceManager.GetString("add_downlink_channel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Дополнительные настройки.
         /// </summary>
         internal static string additional_settings {
@@ -126,9 +135,54 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Отменить.
         /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Канал пеленгования.
+        /// </summary>
+        internal static string channel_direction_finding {
+            get {
+                return ResourceManager.GetString("channel_direction_finding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер канала.
+        /// </summary>
+        internal static string channel_number {
+            get {
+                return ResourceManager.GetString("channel_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отменить.
+        /// </summary>
         internal static string Close {
             get {
                 return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ПАМ.
+        /// </summary>
+        internal static string df {
+            get {
+                return ResourceManager.GetString("df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Версия ПАМ.
+        /// </summary>
+        internal static string df_version {
+            get {
+                return ResourceManager.GetString("df_version", resourceCulture);
             }
         }
         
@@ -165,6 +219,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         internal static string eng {
             get {
                 return ResourceManager.GetString("eng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Первый радиоканал используется под входящуюю связь.
+        /// </summary>
+        internal static string first_radio_ch_used_incoming_calls {
+            get {
+                return ResourceManager.GetString("first_radio_ch_used_incoming_calls", resourceCulture);
             }
         }
         
@@ -214,6 +277,15 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Входящая связь.
+        /// </summary>
+        internal static string IncomingCalls {
+            get {
+                return ResourceManager.GetString("IncomingCalls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Режим.
         /// </summary>
         internal static string mode {
@@ -237,6 +309,24 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         internal static string not_defined {
             get {
                 return ResourceManager.GetString("not_defined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не используется.
+        /// </summary>
+        internal static string NotUsed {
+            get {
+                return ResourceManager.GetString("NotUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ок.
+        /// </summary>
+        internal static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
         
@@ -277,11 +367,38 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Исходящая связь.
+        /// </summary>
+        internal static string OutgoingCalls {
+            get {
+                return ResourceManager.GetString("OutgoingCalls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Радиоканалы.
+        /// </summary>
+        internal static string radio_channels {
+            get {
+                return ResourceManager.GetString("radio_channels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Перенаправление на GSM.
         /// </summary>
         internal static string redirection_to_GSM {
             get {
                 return ResourceManager.GetString("redirection_to_GSM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрации.
+        /// </summary>
+        internal static string Registrations {
+            get {
+                return ResourceManager.GetString("Registrations", resourceCulture);
             }
         }
         
@@ -367,11 +484,38 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Варианты использования.
+        /// </summary>
+        internal static string use_cases {
+            get {
+                return ResourceManager.GetString("use_cases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Использовать GPRS в работе.
         /// </summary>
         internal static string use_GPRS {
             get {
                 return ResourceManager.GetString("use_GPRS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Версия 1.0.
+        /// </summary>
+        internal static string Version1 {
+            get {
+                return ResourceManager.GetString("Version1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Версия 2.0.
+        /// </summary>
+        internal static string Version2 {
+            get {
+                return ResourceManager.GetString("Version2", resourceCulture);
             }
         }
         
