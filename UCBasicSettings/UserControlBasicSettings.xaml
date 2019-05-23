@@ -287,7 +287,7 @@
                 </GroupBox.Header>
                 <StackPanel Orientation="Vertical">
                     <CheckBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="4 5" 
-                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChangeModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                       Content="{l:Localization Key=frequency_change_model}"/>
                     <StackPanel Orientation="Vertical" >
                         <StackPanel.Style>
@@ -296,7 +296,7 @@
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChangeModel}" Value="True">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -371,7 +371,7 @@
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChangeModel}" Value="True">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </DataTrigger>
                                 </Style.Triggers>

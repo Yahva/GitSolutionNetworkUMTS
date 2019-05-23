@@ -56,6 +56,7 @@ namespace UCBasicSettings
         public bool UseGPRS { get { return _useGPRS; } set { _useGPRS = value; OnPropertyChanged(); } }
 
         #region Частотные каналы
+        private bool _isEnabledFrequencyChangeModel;
         private bool _isEnabledFrequencyChannelAutoselect;
         private int _directChannel;
         private int _reverseChannel;
@@ -63,6 +64,7 @@ namespace UCBasicSettings
         private DateTime _operatingTimeFrequency;
         public ObservableCollection<ItemChannelNumberAndPSC> _collectionItemChannelNumberAndPSC;
 
+        public bool IsEnabledFrequencyChangeModel { get { return _isEnabledFrequencyChangeModel; } set { _isEnabledFrequencyChangeModel = value; OnPropertyChanged(); } }
         public bool IsEnabledFrequencyChannelAutoselect { get { return _isEnabledFrequencyChannelAutoselect; } set { _isEnabledFrequencyChannelAutoselect = value; OnPropertyChanged(); } }      
         public int DirectChannel { get { return _directChannel; } set { _directChannel = value; OnPropertyChanged(); } }
         public int ReverseChannel { get { return _reverseChannel; } set { _reverseChannel = value; OnPropertyChanged(); } }
