@@ -12,11 +12,11 @@ namespace UCBasicSettings
     public class BasicSettingsInfo : INotifyPropertyChanged, ICloneable
     {
         #region Оператор
-        private int _mcc;
-        private int _mnc;
+        private uint _mcc;
+        private uint _mnc;
 
-        public int MCC { get { return _mcc; } set { _mcc = value; OnPropertyChanged(); } }
-        public int MNC { get { return _mnc; } set { _mnc = value; OnPropertyChanged(); } }
+        public uint MCC { get { return _mcc; } set { _mcc = value; OnPropertyChanged(); } }
+        public uint MNC { get { return _mnc; } set { _mnc = value; OnPropertyChanged(); } }
         #endregion
 
         #region Идентификаторы

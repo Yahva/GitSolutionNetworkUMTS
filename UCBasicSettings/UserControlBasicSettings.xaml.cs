@@ -84,23 +84,6 @@ namespace UCBasicSettings
             DependencyProperty.Register("HasError", typeof(bool), typeof(UserControlBasicSettings), new UIPropertyMetadata(false));
         #endregion
 
-        private void ComboBox_Selected_LegitimateOperator(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-            LegitimateOperator legitimateOperator = comboBox.SelectedItem as LegitimateOperator;
-
-            if (legitimateOperator != null)
-            {
-                CurrentBasicSettingsInfo.MCC = legitimateOperator.MCC;
-                CurrentBasicSettingsInfo.MNC = legitimateOperator.MNC;
-            }
-            else
-            {
-                CurrentBasicSettingsInfo.MCC = 0;
-                CurrentBasicSettingsInfo.MNC = 0;
-            }
-        }
-
         #region Validation
         private bool IsValid(DependencyObject obj)
         {
@@ -323,8 +306,7 @@ namespace UCBasicSettings
 
             return result;
         }
-
-        
+       
         private void Add_ItemChannelNumberAndPSC(object sender, RoutedEventArgs e)
         {
             AddDirectChannelWindow addDirectChannelWindow = new AddDirectChannelWindow(new ItemChannelNumberAndPSC());
@@ -344,8 +326,8 @@ namespace UCBasicSettings
     }
     public class LegitimateOperator
     {
-        public int MCC { get; set; }
-        public int MNC { get; set; }
+        public uint MCC { get; set; }
+        public uint MNC { get; set; }
 
         public string Сountry { get; set; }
         public string MobileOperator { get; set; }
@@ -426,6 +408,47 @@ namespace UCBasicSettings
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return DependencyProperty.UnsetValue;
+        }
+    }
+
+    public class MCC_MNC_SelectedIndex_Convert : IMultiValueConverter
+    {
+        IList<LegitimateOperator> ListLegitimateOperators = null;
+        uint MCC = 0;
+        uint MNC = 0;
+
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((values[0] != null && values[0] != DependencyProperty.UnsetValue) &&
+                (values[1] != null && values[1] != DependencyProperty.UnsetValue))
+            {
+                MCC = (uint)values[0];
+                MNC = (uint)values[1];
+                ListLegitimateOperators = (IList<LegitimateOperator>)values[2];
+                LegitimateOperator legitimateOperator = ListLegitimateOperators.FirstOrDefault(o => (o.MCC == MCC && o.MNC == MNC));
+                int selectedIndex = ListLegitimateOperators.IndexOf(legitimateOperator);
+                return (selectedIndex + 1);
+            }
+            return 0;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            int selectedIndex = (int)value;
+
+            if (ListLegitimateOperators != null && selectedIndex > 0)
+            {
+                selectedIndex--;
+                if (ListLegitimateOperators.Count > selectedIndex)
+                {
+                    LegitimateOperator legitimateOperator = ListLegitimateOperators[selectedIndex];
+                    MCC = legitimateOperator.MCC;
+                    MNC = legitimateOperator.MNC;
+                    return new object[3] { MCC, MNC, null };
+                }
+            }
+
+            return new object[3] { (uint)0, (uint)0, null };
         }
     }
 }

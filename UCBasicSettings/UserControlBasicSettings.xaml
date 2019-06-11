@@ -35,6 +35,9 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <local:MCC_MNC_SelectedIndex_Convert  x:Key="MCC_MNC_SelectedIndex_Convert"/>
+                    </Grid.Resources>
 
                     <TextBlock Grid.Column="0" HorizontalAlignment="Right" Margin="4 5" VerticalAlignment="Center" Text="MCC"/>
                     <dxe:SpinEdit Grid.Column="1"
@@ -54,10 +57,14 @@
                                   HorizontalContentAlignment="Left"
                                   Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MNC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
-                                  SelectedIndex="0"  Margin="2 5 0 5" 
-                                  SelectionChanged="ComboBox_Selected_LegitimateOperator"
-                                  x:Name="ComboBox_ListLegitimateOperators">
+                    <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="4 5">
+                        <ComboBox.SelectedIndex>
+                            <MultiBinding UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" Converter="{StaticResource MCC_MNC_SelectedIndex_Convert}" >
+                                <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MCC" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MNC" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                <Binding ElementName="root" Path="ListLegitimateOperators" Mode="OneWay" UpdateSourceTrigger="PropertyChanged"/>
+                            </MultiBinding>
+                        </ComboBox.SelectedIndex>
                         <ComboBox.ItemsSource>
                             <CompositeCollection>
                                 <ComboBoxItem>
