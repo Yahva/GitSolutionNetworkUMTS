@@ -17,28 +17,20 @@ using System.Windows.Shapes;
 using UCAdditionalSettings;
 using UCBasicSettings;
 
-namespace UCMainForBasicandAdditionalSettings
+namespace UCMainSettingsUMTS
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class UCMainForBasicandAdditionalSettings : UserControl
+    public partial class UserControlMainSettingsUMTS : UserControl
     {
-        private readonly Dictionary<EnumUC, UserControl> _listUC;
-        public UCMainForBasicandAdditionalSettings()
+        public UserControlMainSettingsUMTS()
         {
-            LocalizationManager.Instance.LocalizationProvider = new ResxLocalizationProvider();
             InitializeComponent();
             ComboBox_SwitchLocalization.DataContext = new VMUCMainForBasicandAdditionalSettings();
 
-            _listUC = new Dictionary<EnumUC, UserControl>()
-            {
-                { EnumUC.UCAdditionalSettings, new UserControlAdditionalSettings() },
-                { EnumUC.UCBasicSettings, new UserControlBasicSettings() }
-            };
-
             #region Set UserControlSettingsRAN
-            ((UserControlBasicSettings)_listUC[EnumUC.UCBasicSettings]).CurrentBasicSettingsInfo = new BasicSettingsInfo()
+            CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo = new BasicSettingsInfo()
             {
                 #region Оператор
                 MCC = 255,
@@ -76,7 +68,7 @@ namespace UCMainForBasicandAdditionalSettings
                 }
                 #endregion
             };
-            ((UserControlBasicSettings)_listUC[EnumUC.UCBasicSettings]).ListLegitimateOperators = new List<LegitimateOperator>()
+            this.ListLegitimateOperators = new List<LegitimateOperator>()
             {
                 new LegitimateOperator() { MCC = 259, MNC = 01, Сountry = "Moldova", MobileOperator="Orange" },
                 new LegitimateOperator() { MCC = 259, MNC = 02, Сountry = "Moldova", MobileOperator="Moldcell" },
@@ -84,7 +76,7 @@ namespace UCMainForBasicandAdditionalSettings
             #endregion
 
             #region Set UserControlAdditionalSettings
-            ((UserControlAdditionalSettings)_listUC[EnumUC.UCAdditionalSettings]).CurrentAdditionalSettingsInfo = new AdditionalSettingsInfo()
+            CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo = new AdditionalSettingsInfo()
             {
                 #region ПАМ
                 #endregion
@@ -136,20 +128,22 @@ namespace UCMainForBasicandAdditionalSettings
             #endregion
         }
 
-        private enum EnumUC
+        #region DependencyPropertys
+        public OptionsUMTSInfo CurrentOptionsUMTSInfo
         {
-            UCAdditionalSettings,
-            UCBasicSettings
+            get { return (OptionsUMTSInfo)GetValue(CurrentOptionsUMTSInfoProperty); }
+            set { SetValue(CurrentOptionsUMTSInfoProperty, value); }
         }
+        public static readonly DependencyProperty CurrentOptionsUMTSInfoProperty =
+            DependencyProperty.Register("CurrentOptionsUMTSInfo", typeof(OptionsUMTSInfo), typeof(UserControlMainSettingsUMTS), new UIPropertyMetadata(new OptionsUMTSInfo()));
 
-        private void Button_SetInPanelUCAdditionalSettingsCommand_Click(object sender, System.Windows.RoutedEventArgs e)
+        public List<LegitimateOperator> ListLegitimateOperators
         {
-            PanelOptions.Child = _listUC[EnumUC.UCAdditionalSettings];
+            get { return (List<LegitimateOperator>)GetValue(ListLegitimateOperatorsProperty); }
+            set { SetValue(ListLegitimateOperatorsProperty, value); }
         }
-
-        private void Button_SetInPanelUCBasicSettings_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            PanelOptions.Child = _listUC[EnumUC.UCBasicSettings];
-        }
+        public static readonly DependencyProperty ListLegitimateOperatorsProperty =
+            DependencyProperty.Register("ListLegitimateOperators", typeof(List<LegitimateOperator>), typeof(UserControlMainSettingsUMTS), new UIPropertyMetadata(new List<LegitimateOperator>()));
+        #endregion   
     }
 }

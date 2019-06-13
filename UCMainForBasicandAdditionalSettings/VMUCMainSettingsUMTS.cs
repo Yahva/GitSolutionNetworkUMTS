@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
-namespace UCMainForBasicandAdditionalSettings
+namespace UCMainSettingsUMTS
 {
     class VMUCMainForBasicandAdditionalSettings : INotifyPropertyChanged
     {

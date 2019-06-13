@@ -36,7 +36,8 @@ namespace LocalizationBasicAndAdditionalSettings.Localization
 
         public IEnumerable<CultureInfo> Cultures => LocalizationProvider?.Cultures ?? Enumerable.Empty<CultureInfo>();
 
-        public ILocalizationProvider LocalizationProvider { get; set; }
+        public ILocalizationProvider _localizationProvider;
+        public ILocalizationProvider LocalizationProvider => _localizationProvider ?? (_localizationProvider = new ResxLocalizationProvider());
 
         private void OnCultureChanged()
         {

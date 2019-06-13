@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="UCMainForBasicandAdditionalSettings.UCMainForBasicandAdditionalSettings"
+﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  x:Class="UCMainSettingsUMTS.UserControlMainSettingsUMTS"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:UCMainForBasicandAdditionalSettings"
+             xmlns:local="clr-namespace:UCMainSettingsUMTS"
              xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettings.Localization;assembly=LocalizationBasicAndAdditionalSettings"
+             xmlns:uc_bs_umts="clr-namespace:UCBasicSettings;assembly=UCBasicSettings"
+             xmlns:uc_as_umts="clr-namespace:UCAdditionalSettings;assembly=UCAdditionalSettings"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="LightBlue" x:Name="MainGrid">
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <ComboBox Grid.Row="0"
                   x:Name="ComboBox_SwitchLocalization"
@@ -26,40 +26,30 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" >
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Margin" Value=" 5 5 0 5"></Setter>
-                </Style>
-            </StackPanel.Resources>
-            <Button Click ="Button_SetInPanelUCBasicSettings_Click" >
-                <Button.Content>
+        <dx:DXTabControl Grid.Row="1" MinHeight="300" MinWidth="400">
+            <dx:DXTabItem>
+                <dx:DXTabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Height="20" Margin="2 0 3 0" Source="Icons\icon50x50_options_black.png" VerticalAlignment="Center"/>
                         <TextBlock Text="{l:Localization Key=basic_settings}" VerticalAlignment="Center"/>
                     </StackPanel>
-                </Button.Content>
-            </Button>
-            <Button Click ="Button_SetInPanelUCAdditionalSettingsCommand_Click">
-                <Button.Content>
+                </dx:DXTabItem.Header>
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <uc_bs_umts:UserControlBasicSettings CurrentBasicSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         ListLegitimateOperators="{Binding ElementName=root, Path=ListLegitimateOperators, Mode=OneWay}"/>
+                </ScrollViewer>
+            </dx:DXTabItem>
+            <dx:DXTabItem>
+                <dx:DXTabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Height="20" Margin="2 0 3 0" Source="Icons\icon50x50_options_white.png" VerticalAlignment="Center"/>
                         <TextBlock Text="{l:Localization Key=additional_settings}" VerticalAlignment="Center"/>
                     </StackPanel>
-                </Button.Content>
-            </Button>
-        </StackPanel>
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <Border x:Name="PanelOptions" BorderThickness="2" BorderBrush="Black" Margin="5"/>
-        </ScrollViewer>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Margin" Value=" 5 2 5 2"></Setter>
-                </Style>
-            </StackPanel.Resources>
-            <Button Command="{Binding Path=AcceptOptionsCommand}"  Content="{l:Localization Key=Apply}" />
-            <Button Command="{Binding Path=CloseOptionsCommand}"   Content="{l:Localization Key=Close}"/>
-        </StackPanel>
+                </dx:DXTabItem.Header>
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <uc_as_umts:UserControlAdditionalSettings CurrentAdditionalSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </ScrollViewer>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
     </Grid>
 </UserControl>

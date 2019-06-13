@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Mvvm.Native;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -88,7 +89,12 @@ namespace UCBasicSettings
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            BasicSettingsInfo CloneBasicSettingsInfo = this.MemberwiseClone() as BasicSettingsInfo;
+
+            CloneBasicSettingsInfo.CollectionItemChannelNumberAndPSC = new ObservableCollection<ItemChannelNumberAndPSC>();
+            this.CollectionItemChannelNumberAndPSC?.ForEach((item) => CloneBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Add(item.Clone() as ItemChannelNumberAndPSC));
+
+            return CloneBasicSettingsInfo;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -99,7 +105,7 @@ namespace UCBasicSettings
        
     }
 
-    public class ItemChannelNumberAndPSC : INotifyPropertyChanged
+    public class ItemChannelNumberAndPSC : INotifyPropertyChanged, ICloneable
     {
         public int _directChannelNumber;
         private int _psc;
@@ -107,7 +113,13 @@ namespace UCBasicSettings
         public int DirectChannelNumber { get { return _directChannelNumber; } set { _directChannelNumber = value; OnPropertyChanged(); } }
         public int PSC { get { return _psc; } set { _psc = value; OnPropertyChanged(); } }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

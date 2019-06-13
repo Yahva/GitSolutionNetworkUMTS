@@ -52,8 +52,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UCMainForBasicandAdditionalSettings">
-      <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\UCMainForBasicandAdditionalSettings.dll</HintPath>
+    <Reference Include="UCMainSettingsUMTS">
+      <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\UCMainSettingsUMTS.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
