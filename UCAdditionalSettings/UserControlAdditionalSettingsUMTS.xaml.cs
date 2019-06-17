@@ -20,13 +20,13 @@ namespace UCAdditionalSettingsUMTS
         }
 
         #region DependencyPropertys
-        public AdditionalSettingsUMTSInfo CurrentAdditionalSettingsInfo
+        public AdditionalSettingsUMTSInfo CurrentAdditionalSettingsUMTSInfo
         {
-            get { return (AdditionalSettingsUMTSInfo)GetValue(CurrentAdditionalSettingsInfoProperty); }
-            set { SetValue(CurrentAdditionalSettingsInfoProperty, value); }
+            get { return (AdditionalSettingsUMTSInfo)GetValue(CurrentAdditionalSettingsUMTSInfoProperty); }
+            set { SetValue(CurrentAdditionalSettingsUMTSInfoProperty, value); }
         }
-        public static readonly DependencyProperty CurrentAdditionalSettingsInfoProperty =
-            DependencyProperty.Register("CurrentAdditionalSettingsInfo", typeof(AdditionalSettingsUMTSInfo), typeof(UserControlAdditionalSettingsUMTS), new UIPropertyMetadata(new AdditionalSettingsUMTSInfo()));
+        public static readonly DependencyProperty CurrentAdditionalSettingsUMTSInfoProperty =
+            DependencyProperty.Register("CurrentAdditionalSettingsUMTSInfo", typeof(AdditionalSettingsUMTSInfo), typeof(UserControlAdditionalSettingsUMTS), new UIPropertyMetadata(new AdditionalSettingsUMTSInfo()));
 
 #endregion
     }

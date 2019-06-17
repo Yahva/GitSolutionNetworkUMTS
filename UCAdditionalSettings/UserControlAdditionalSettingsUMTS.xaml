@@ -24,7 +24,7 @@
                         <TextBlock Margin="4 5" VerticalAlignment="Center" DockPanel.Dock="Left" Text="{l:Localization Key=df_version}"/>
                         <dxe:ComboBoxEdit Margin="4 5" Width="120" DockPanel.Dock="Right"
                                           IsTextEditable="False"
-                                          SelectedItem="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.DFVersion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          SelectedItem="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.DFVersion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                           ItemsSource="{Binding Path=ListDFVersion}">
                             <dxe:ComboBoxEdit.ItemTemplate>
                                 <DataTemplate>
@@ -45,7 +45,7 @@
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.DFVersion}" Value="Version1">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.DFVersion}" Value="Version1">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -54,7 +54,7 @@
                         <TextBlock Margin="4 5" VerticalAlignment="Center" DockPanel.Dock="Left" Text="{l:Localization Key=channel_direction_finding}"/>
                         <dxe:TextEdit Margin="4 5" VerticalAlignment="Center" Width="120" DockPanel.Dock="Right"
                                       Mask="D" MaskType="Numeric" MaxLength="5"
-                                      EditValue="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.ChannelDirectionFinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                      EditValue="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.ChannelDirectionFinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </DockPanel>
                     <TextBlock Margin="4 5" VerticalAlignment="Center" Foreground="DarkOrange" Text="{l:Localization Key=first_radio_ch_used_incoming_calls}">
                         <TextBlock.Style>
@@ -63,7 +63,7 @@
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.DFVersion}" Value="Version2">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.DFVersion}" Value="Version2">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -75,7 +75,7 @@
             <GroupBox>
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox x:Name="CheckBox_UseTimeSlot" Margin="0 0 5 0" IsChecked="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.IsEnabledRadioChannels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox x:Name="CheckBox_UseTimeSlot" Margin="0 0 5 0" IsChecked="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.IsEnabledRadioChannels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <TextBlock Foreground="Blue"  Text="{l:Localization Key=radio_channels}"/>
                     </StackPanel>
                 </GroupBox.Header>
@@ -90,7 +90,7 @@
                                 <Setter Property="Visibility" Value="Collapsed"/>
                             </Style.Setters>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.IsEnabledRadioChannels}" Value="True">
+                                <DataTrigger Binding="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.IsEnabledRadioChannels}" Value="True">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -103,7 +103,7 @@
                         <dxe:ListBoxEdit Name="ListBoxEdit_ListRadioChannels"
                                          DisplayMember="ChannelNumber" 
                                          SelectedIndex="0"
-                                         ItemsSource="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.ListRadioChannels}"/>
+                                         ItemsSource="{Binding ElementName=root, Path=CurrentAdditionalSettingsUMTSInfo.ListRadioChannels}"/>
                     </GroupBox>
                     <GroupBox Grid.Column="1" Margin="4 5" >
                         <GroupBox.Header>

@@ -12,18 +12,18 @@ namespace UCMainSettingsUMTS
 {
     public class OptionsUMTSInfo : INotifyPropertyChanged, ICloneable
     {
-        BasicSettingsUMTSInfo _currentBasicSettingsInfo;
-        AdditionalSettingsUMTSInfo _currentAdditionalSettingsInfo;
+        BasicSettingsUMTSInfo _currentBasicSettingsUMTSInfo;
+        AdditionalSettingsUMTSInfo _currentAdditionalSettingsUMTSInfo;
 
-        public BasicSettingsUMTSInfo CurrentBasicSettingsInfo { get { return _currentBasicSettingsInfo; } set { _currentBasicSettingsInfo = value; OnPropertyChanged(); } }
-        public AdditionalSettingsUMTSInfo CurrentAdditionalSettingsInfo { get { return _currentAdditionalSettingsInfo; } set { _currentAdditionalSettingsInfo = value; OnPropertyChanged(); } }
+        public BasicSettingsUMTSInfo CurrentBasicSettingsUMTSInfo { get { return _currentBasicSettingsUMTSInfo; } set { _currentBasicSettingsUMTSInfo = value; OnPropertyChanged(); } }
+        public AdditionalSettingsUMTSInfo CurrentAdditionalSettingsUMTSInfo { get { return _currentAdditionalSettingsUMTSInfo; } set { _currentAdditionalSettingsUMTSInfo = value; OnPropertyChanged(); } }
 
         public object Clone()
         {
             return new OptionsUMTSInfo()
             {
-                CurrentBasicSettingsInfo = this.CurrentBasicSettingsInfo.Clone() as BasicSettingsUMTSInfo,
-                CurrentAdditionalSettingsInfo = this.CurrentAdditionalSettingsInfo.Clone() as AdditionalSettingsUMTSInfo
+                CurrentBasicSettingsUMTSInfo = this.CurrentBasicSettingsUMTSInfo.Clone() as BasicSettingsUMTSInfo,
+                CurrentAdditionalSettingsUMTSInfo = this.CurrentAdditionalSettingsUMTSInfo.Clone() as AdditionalSettingsUMTSInfo
             };
         }
 

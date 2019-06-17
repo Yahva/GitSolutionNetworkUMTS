@@ -47,7 +47,7 @@
                                   MinValue="0" MaxValue="999" MaxLength="3"
                                   AllowRoundOutOfRangeValue="True"
                                   HorizontalContentAlignment="Left"
-                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MCC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.MCC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Grid.Column="2" HorizontalAlignment="Right" Margin="4 5" VerticalAlignment="Center" Text="MNC"/>
                     <dxe:SpinEdit Grid.Column="3"
@@ -56,13 +56,13 @@
                                   MinValue="0" MaxValue="99" MaxLength="2"
                                   AllowRoundOutOfRangeValue="True"
                                   HorizontalContentAlignment="Left"
-                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MNC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.MNC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="4 5">
                         <ComboBox.SelectedIndex>
                             <MultiBinding UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" Converter="{StaticResource MCC_MNC_SelectedIndex_Convert}" >
-                                <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MCC" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
-                                <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MNC" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.MCC" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.MNC" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
                                 <Binding ElementName="root" Path="ListLegitimateOperators" Mode="OneWay" UpdateSourceTrigger="PropertyChanged"/>
                             </MultiBinding>
                         </ComboBox.SelectedIndex>
@@ -93,7 +93,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="LAC" />
-                    <CheckBox Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionLAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <CheckBox Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoSelectionLAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <dxe:SpinEdit Grid.Column="2" Margin="4 5"
                                   AllowDefaultButton="False" 
                                   Mask="D" MaskType="Numeric" 
@@ -104,11 +104,11 @@
                         <dxe:SpinEdit.Style>
                             <Style TargetType="dxe:SpinEdit">
                                 <Style.Setters>
-                                    <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.LAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />
+                                    <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.LAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />
                                     <Setter Property="IsEnabled" Value="True"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionLAC}" Value="True">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoSelectionLAC}" Value="True">
                                         <Setter Property="IsEnabled" Value="False"/>
                                         <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
                                         <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
@@ -119,7 +119,7 @@
                     </dxe:SpinEdit>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="CID" />
-                    <CheckBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionCID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <CheckBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoSelectionCID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <dxe:SpinEdit Grid.Row="1" Grid.Column="2" Margin="4 5"
                                   AllowDefaultButton="False" 
                                   Mask="D" MaskType="Numeric" 
@@ -130,11 +130,11 @@
                         <dxe:SpinEdit.Style>
                             <Style TargetType="dxe:SpinEdit">
                                 <Style.Setters>
-                                    <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
+                                    <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.CID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"/>
                                     <Setter Property="IsEnabled" Value="True"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoSelectionCID}" Value="True">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoSelectionCID}" Value="True">
                                         <Setter Property="IsEnabled" Value="False"/>
                                         <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
                                         <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
@@ -164,7 +164,7 @@
                     <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=mode}"/>
                     <ComboBox Grid.Column="1"
                               ItemsSource="{Binding Path=ListMode}"
-                              SelectedItem="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Mode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                              SelectedItem="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.Mode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{l:Localization KeyBinding={Binding}}" />
@@ -173,7 +173,7 @@
                     </ComboBox>
 
                     <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=attenuation}"/>
-                    <sw:UserControlSlider Grid.Column="1" Grid.Row="1" Margin="0 5" ValueBack="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Attenuation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <sw:UserControlSlider Grid.Column="1" Grid.Row="1" Margin="0 5" ValueBack="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.Attenuation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=ms_power}"/>
                     <Grid Grid.Column="1" Grid.Row="2">
@@ -182,7 +182,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoRegulateMSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <dxe:TextEdit Grid.Column="1" Grid.ColumnSpan="2" Tag="{l:Localization Key=autoselect}" Text="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}">
                             <dxe:TextEdit.Style>
                                 <Style TargetType="dxe:TextEdit">
@@ -190,7 +190,7 @@
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </Style.Setters>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoRegulateMSPower}" Value="True">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -202,14 +202,14 @@
                                       MinValue="-10" MaxValue="50" MaxLength="2"
                                       AllowRoundOutOfRangeValue="True"
                                       HorizontalContentAlignment="Left"
-                                      Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.MSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}">
+                                      Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.MSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}">
                             <dxe:SpinEdit.Style>
                                 <Style TargetType="dxe:SpinEdit">
                                     <Style.Setters>
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </Style.Setters>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoRegulateMSPower}" Value="True">
                                             <Setter Property="Visibility" Value="Collapsed"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -228,14 +228,14 @@
                                         <Setter Property="Tag">
                                             <Setter.Value>
                                                 <l:Localization Key="show_dBm">
-                                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MSPower" Converter="{StaticResource MSPowerIndBmConverter}" />
-                                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.MSPower" />
+                                                    <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.MSPower" Converter="{StaticResource MSPowerIndBmConverter}" />
+                                                    <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.MSPower" />
                                                 </l:Localization>
                                             </Setter.Value>
                                         </Setter>
                                     </Style.Setters>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsAutoRegulateMSPower}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoRegulateMSPower}" Value="True">
                                             <Setter Property="Visibility" Value="Collapsed"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -270,7 +270,7 @@
                                   MinValue="0" MaxValue="999999" MaxLength="6"
                                   AllowRoundOutOfRangeValue="True"
                                   HorizontalContentAlignment="Left"
-                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.StartSearchArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.StartSearchArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="{l:Localization Key=distance_correction}" />
                     <dxe:SpinEdit Grid.Row="1" Grid.Column="1" 
@@ -279,10 +279,10 @@
                                   MinValue="0" MaxValue="999999" MaxLength="6"
                                   AllowRoundOutOfRangeValue="True"
                                   HorizontalContentAlignment="Left"
-                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.DistanceСorrection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                  Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.DistanceСorrection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </GroupBox>
-            <CheckBox Margin="2 10 0 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.UseGPRS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            <CheckBox Margin="2 10 0 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.UseGPRS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                       Content="{l:Localization Key=use_GPRS}"/>
             <TextBlock  Text="{Binding ElementName=root, Path=HasError}"/>
         </StackPanel>
@@ -295,7 +295,7 @@
                 </GroupBox.Header>
                 <StackPanel Orientation="Vertical">
                     <CheckBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="4 5" 
-                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChangeModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChangeModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                       Content="{l:Localization Key=frequency_change_model}"/>
                     <StackPanel Orientation="Vertical" >
                         <StackPanel.Style>
@@ -304,7 +304,7 @@
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChangeModel}" Value="True">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChangeModel}" Value="True">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -317,7 +317,7 @@
                             <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="4 5" Text="{l:Localization Key=operating_time_frequency}"/>
                             <dxe:DateEdit DockPanel.Dock="Right" Width="80" VerticalAlignment="Center" Margin="4 5"
                                           Mask="mm:ss" 
-                                          DateTime="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.OperatingTimeFrequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          DateTime="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.OperatingTimeFrequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                           DisplayFormatString="mm:ss" 
                                           MaskUseAsDisplayFormat="True">
                                 <dxe:DateEdit.StyleSettings>
@@ -344,7 +344,7 @@
                         <dxg:GridControl AutoGenerateColumns="None" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Panel}}, Path=ActualWidth, Converter={StaticResource CorrectWidthConverter}}"
                                          Name="GridControl_CollectionItemChannelNumberAndPSC"  
                                          Height="200" 
-                                         ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC}" >
+                                         ItemsSource="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.CollectionItemChannelNumberAndPSC}" >
                             <dxg:GridControl.Columns>
                                 <dxg:GridColumn  Header="{l:Localization Key=direct_сhannel_number}" FieldName="DirectChannelNumber">
                                     <dxg:GridColumn.EditSettings>
@@ -379,7 +379,7 @@
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChangeModel}" Value="True">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChangeModel}" Value="True">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -390,12 +390,12 @@
                             <local:DownlinkToCommonNameConverter x:Key="DownlinkToCommonNameConverter"/>
                         </Grid.Resources>
                         <CheckBox Grid.Row="0" Grid.Column="0" Margin="4 5" 
-                                  IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelAutoselect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChannelAutoselect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                   Content="{l:Localization Key=auto}" Grid.ColumnSpan="2"/>
                         <DockPanel  Grid.Row="0" Grid.Column="1" Margin="4 5" VerticalAlignment="Center">
                             <TextBlock Text="Band: "/>
                             <TextBlock Foreground="DarkOrange"
-                                       Text="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.DirectChannel, Mode=OneWay, Converter={StaticResource DownlinkToCommonNameConverter}}" />
+                                       Text="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.DirectChannel, Mode=OneWay, Converter={StaticResource DownlinkToCommonNameConverter}}" />
                         </DockPanel>
                        
                         <TextBlock Grid.Row="1" Grid.Column="0" Margin="4,8" VerticalAlignment="Center" Text="{l:Localization Key=direct_channel}" Grid.ColumnSpan="2" />
@@ -412,15 +412,15 @@
                                         <Setter Property="Text">
                                         <Setter.Value>
                                                 <MultiBinding UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource DownlinkToUplinkConverter}" >
-                                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.DirectChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
-                                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.ReverseChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                                    <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.DirectChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                                    <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.ReverseChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
                                                 </MultiBinding>
                                             </Setter.Value>
                                         </Setter>
                                         <Setter Property="IsEnabled" Value="True"/>
                                     </Style.Setters>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
                                             <Setter Property="IsEnabled" Value="False"/>
                                             <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
                                             <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
@@ -440,7 +440,7 @@
                             <Grid.Resources>
                                
                             </Grid.Resources>
-                            <local:Proxy In="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.DirectChannel, Mode=OneWay}" 
+                            <local:Proxy In="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.DirectChannel, Mode=OneWay}" 
                                          Out="{Binding ElementName=SpinEdit_UplinkRule_Text, Path=Downlink}" />
                             <dxe:SpinEdit Grid.Column="0" x:Name="SpinEdit_ReverseChannel"
                                           AllowDefaultButton="False"
@@ -456,14 +456,14 @@
                                             <Setter Property="IsEnabled" Value="True"/>
                                         </Style.Setters>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
+                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
                                                 <Setter Property="IsEnabled" Value="False"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </dxe:SpinEdit.Style>
                                 <dxe:SpinEdit.Value>
-                                    <Binding ElementName="root" Path="CurrentBasicSettingsInfo.ReverseChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
+                                    <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.ReverseChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
                                         <Binding.ValidationRules>
                                             <local:UplinkRule x:Name="SpinEdit_UplinkRule_Text" />
                                             <ExceptionValidationRule/>
@@ -485,11 +485,11 @@
                             <dxe:SpinEdit.Style>
                                 <Style TargetType="dxe:SpinEdit">
                                     <Style.Setters>
-                                        <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.PSC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />
+                                        <Setter Property="Text" Value="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.PSC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />
                                         <Setter Property="IsEnabled" Value="True"/>
                                     </Style.Setters>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChannelAutoselect}" Value="True">
                                             <Setter Property="IsEnabled" Value="False"/>
                                             <Setter Property="Tag" Value="{l:Localization Key=autoselect}"/>
                                             <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
@@ -515,7 +515,7 @@
 
                     <ComboBox Grid.Row="0" 
                               ItemsSource="{Binding Path=ListRedirection}"
-                              SelectedItem="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Redirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                              SelectedItem="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.Redirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{l:Localization KeyBinding={Binding}}" />
@@ -526,7 +526,7 @@
                     <GroupBox Margin="0 5" Grid.Row="1">
                         <GroupBox.Header>
                             <StackPanel Orientation="Horizontal">
-                                <CheckBox x:Name="CheckBox_UseTimeSlot" Margin="0 0 5 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelRedirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <CheckBox x:Name="CheckBox_UseTimeSlot" Margin="0 0 5 0" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChannelRedirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 <TextBlock Foreground="Blue" Text="{l:Localization Key=frequency_channel_redirection}"/>
                             </StackPanel>
                         </GroupBox.Header>
@@ -536,7 +536,7 @@
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </Style.Setters>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.Redirection}" Value="TurnedOff">
+                                    <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.Redirection}" Value="TurnedOff">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -549,14 +549,14 @@
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </Style.Setters>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsEnabledFrequencyChannelRedirection}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsEnabledFrequencyChannelRedirection}" Value="True">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </StackPanel.Style>
                             <CheckBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="4 5" 
-                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsSetSpecifyFrequencyChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                       Content="{l:Localization Key=set_specify_frequency_channel}"/>
 
                             <DockPanel  HorizontalAlignment="Stretch" Margin="5 5">
@@ -566,7 +566,7 @@
                                             <Setter Property="Visibility" Value="Collapsed"/>
                                         </Style.Setters>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsSetSpecifyFrequencyChannel}" Value="True">
                                                 <Setter Property="Visibility" Value="Visible"/>
                                             </DataTrigger>
                                         </Style.Triggers>
@@ -580,10 +580,10 @@
                                                AllowRoundOutOfRangeValue="True"
                                                HorizontalContentAlignment="Left"
                                                AllowNullInput="True" 
-                                               IsEnabled="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}"
+                                               IsEnabled="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsSetSpecifyFrequencyChannel}"
                                                IsEnabledChanged="ClearInvalidSpinEdit">
                                     <dxe:SpinEdit.Value>
-                                        <Binding ElementName="root" Path="CurrentBasicSettingsInfo.FrequensyChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
+                                        <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.FrequensyChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
                                             <Binding.ValidationRules>
                                                 <local:FrequencyRule/>
                                                 <ExceptionValidationRule/>
@@ -599,7 +599,7 @@
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </Style.Setters>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsInfo.IsSetSpecifyFrequencyChannel}" Value="True">
+                                            <DataTrigger Binding="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsSetSpecifyFrequencyChannel}" Value="True">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                             </DataTrigger>
                                         </Style.Triggers>

@@ -58,13 +58,13 @@ namespace UCBasicSettingsUMTS
         #endregion
 
         #region DependencyPropertys
-        public BasicSettingsUMTSInfo CurrentBasicSettingsInfo
+        public BasicSettingsUMTSInfo CurrentBasicSettingsUMTSInfo
         {
-            get { return (BasicSettingsUMTSInfo)GetValue(CurrentBasicSettingsInfoProperty); }
-            set { SetValue(CurrentBasicSettingsInfoProperty, value); }
+            get { return (BasicSettingsUMTSInfo)GetValue(CurrentBasicSettingsUMTSInfoProperty); }
+            set { SetValue(CurrentBasicSettingsUMTSInfoProperty, value); }
         }
-        public static readonly DependencyProperty CurrentBasicSettingsInfoProperty =
-            DependencyProperty.Register("CurrentBasicSettingsInfo", typeof(BasicSettingsUMTSInfo), typeof(UserControlBasicSettingsUMTS), new UIPropertyMetadata(new BasicSettingsUMTSInfo()));
+        public static readonly DependencyProperty CurrentBasicSettingsUMTSInfoProperty =
+            DependencyProperty.Register("CurrentBasicSettingsUMTSInfo", typeof(BasicSettingsUMTSInfo), typeof(UserControlBasicSettingsUMTS), new UIPropertyMetadata(new BasicSettingsUMTSInfo()));
 
         public IEnumerable<LegitimateOperator> ListLegitimateOperators
         {
@@ -313,14 +313,14 @@ namespace UCBasicSettingsUMTS
             if (addDirectChannelWindow.ShowDialog() == true)
             {
                 ItemChannelNumberAndPSC itemChannelNumberAndPSC = addDirectChannelWindow.ItemChannelNumberAndPSC;
-                CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Add(itemChannelNumberAndPSC);
+                CurrentBasicSettingsUMTSInfo.CollectionItemChannelNumberAndPSC.Add(itemChannelNumberAndPSC);
             }
         }
         private void Delete_ItemChannelNumberAndPSC(object sender, RoutedEventArgs e)
         {
             if (GridControl_CollectionItemChannelNumberAndPSC.SelectedItem == null) return;
             ItemChannelNumberAndPSC item = GridControl_CollectionItemChannelNumberAndPSC.SelectedItem as ItemChannelNumberAndPSC;
-            CurrentBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Remove(item);
+            CurrentBasicSettingsUMTSInfo.CollectionItemChannelNumberAndPSC.Remove(item);
         }
 
     }

@@ -36,7 +36,7 @@
                     </StackPanel>
                 </dx:DXTabItem.Header>
                 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <uc_bs_umts:UserControlBasicSettingsUMTS CurrentBasicSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <uc_bs_umts:UserControlBasicSettingsUMTS CurrentBasicSettingsUMTSInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentBasicSettingsUMTSInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                              ListLegitimateOperators="{Binding ElementName=root, Path=ListLegitimateOperators, Mode=OneWay}"/>
                 </ScrollViewer>
             </dx:DXTabItem>
@@ -48,7 +48,7 @@
                     </StackPanel>
                 </dx:DXTabItem.Header>
                 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <uc_as_umts:UserControlAdditionalSettingsUMTS CurrentAdditionalSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <uc_as_umts:UserControlAdditionalSettingsUMTS CurrentAdditionalSettingsUMTSInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentAdditionalSettingsUMTSInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </ScrollViewer>
             </dx:DXTabItem>
         </dx:DXTabControl>

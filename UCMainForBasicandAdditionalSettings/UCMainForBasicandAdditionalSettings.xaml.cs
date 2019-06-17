@@ -24,7 +24,7 @@ namespace UCMainSettingsUMTS
         private void SetUserControlsInfo()
         {
             #region Set UserControlSettingsRAN
-            CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo = new BasicSettingsUMTSInfo()
+            CurrentOptionsUMTSInfo.CurrentBasicSettingsUMTSInfo = new BasicSettingsUMTSInfo()
             {
                 #region Оператор
                 MCC = 255,
@@ -70,7 +70,7 @@ namespace UCMainSettingsUMTS
             #endregion
 
             #region Set UserControlAdditionalSettings
-            CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo = new AdditionalSettingsUMTSInfo()
+            CurrentOptionsUMTSInfo.CurrentAdditionalSettingsUMTSInfo = new AdditionalSettingsUMTSInfo()
             {
                 #region ПАМ
                 #endregion
