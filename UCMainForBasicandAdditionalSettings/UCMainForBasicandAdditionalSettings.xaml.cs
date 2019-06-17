@@ -9,7 +9,7 @@ using UCBasicSettings;
 namespace UCMainSettingsUMTS
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for UserControlMainSettingsUMTS.xaml
     /// </summary>
     public partial class UserControlMainSettingsUMTS : UserControl
     {
