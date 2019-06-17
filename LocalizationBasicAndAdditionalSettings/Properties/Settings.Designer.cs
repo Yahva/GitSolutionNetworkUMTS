@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocalizationBasicAndAdditionalSettings.Properties {
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

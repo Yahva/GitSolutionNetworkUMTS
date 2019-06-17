@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Слушатель изменения культуры при локализации по ключу

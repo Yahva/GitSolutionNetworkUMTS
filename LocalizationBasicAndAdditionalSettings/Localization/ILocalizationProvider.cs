@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Интерфейс для реализации поставщика локализованных строк

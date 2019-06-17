@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Основной класс для работы с локализацией

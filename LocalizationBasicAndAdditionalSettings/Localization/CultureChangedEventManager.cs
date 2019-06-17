@@ -2,7 +2,7 @@
 using System;
 using System.Windows;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     public class CultureChangedEventManager : WeakEventManager
     {

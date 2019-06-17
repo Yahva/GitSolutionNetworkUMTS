@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCMainSettingsUMTS", "UCMai
 		{FA2B84D9-32F9-41E2-A5C2-3227E9EEE4B3} = {FA2B84D9-32F9-41E2-A5C2-3227E9EEE4B3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationBasicAndAdditionalSettings", "LocalizationBasicAndAdditionalSettings\LocalizationBasicAndAdditionalSettings.csproj", "{0A0377A2-73DD-44AD-A961-E01ADCDCD65C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationBasicAndAdditionalSettingsUMTS", "LocalizationBasicAndAdditionalSettings\LocalizationBasicAndAdditionalSettingsUMTS.csproj", "{0A0377A2-73DD-44AD-A961-E01ADCDCD65C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SliderWeakening", "SliderWeakening\SliderWeakening\SliderWeakening.csproj", "{FA2B84D9-32F9-41E2-A5C2-3227E9EEE4B3}"
 EndProject

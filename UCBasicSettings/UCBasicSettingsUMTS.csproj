@@ -42,8 +42,8 @@
     <Reference Include="DevExpress.Xpf.Grid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Grid.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Printing.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="LocalizationBasicAndAdditionalSettings">
-      <HintPath>..\LocalizationBasicAndAdditionalSettings\bin\Debug\LocalizationBasicAndAdditionalSettings.dll</HintPath>
+    <Reference Include="LocalizationBasicAndAdditionalSettingsUMTS">
+      <HintPath>..\LocalizationBasicAndAdditionalSettings\bin\Debug\LocalizationBasicAndAdditionalSettingsUMTS.dll</HintPath>
     </Reference>
     <Reference Include="SliderWeakening">
       <HintPath>..\SliderWeakening\SliderWeakening\bin\Debug\SliderWeakening.dll</HintPath>

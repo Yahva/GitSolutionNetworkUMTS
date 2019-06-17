@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UCMainSettingsUMTS"
-             xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettings.Localization;assembly=LocalizationBasicAndAdditionalSettings"
+             xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettingsUMTS.Localization;assembly=LocalizationBasicAndAdditionalSettingsUMTS"
              xmlns:uc_bs_umts="clr-namespace:UCBasicSettingsUMTS;assembly=UCBasicSettingsUMTS"
              xmlns:uc_as_umts="clr-namespace:UCAdditionalSettingsUMTS;assembly=UCAdditionalSettingsUMTS"
              mc:Ignorable="d" 

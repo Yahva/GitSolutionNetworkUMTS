@@ -1,4 +1,4 @@
-﻿using LocalizationBasicAndAdditionalSettings.Localization;
+﻿using LocalizationBasicAndAdditionalSettingsUMTS.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

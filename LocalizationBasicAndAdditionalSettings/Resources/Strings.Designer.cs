@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocalizationBasicAndAdditionalSettings.Resources {
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LocalizationBasicAndAdditionalSettings.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocalizationBasicAndAdditionalSettings.Resources.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocalizationBasicAndAdditionalSettingsUMTS.Resources.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

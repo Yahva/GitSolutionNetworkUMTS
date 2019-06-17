@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Базовый класс для слушателей изменения культуры

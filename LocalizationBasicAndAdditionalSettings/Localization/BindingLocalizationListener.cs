@@ -1,6 +1,6 @@
 ﻿using System.Windows.Data;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Слушатель изменения культуры при локализации по привязке

@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Data;
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Конвертер для получения значения выражения привязки в локализации

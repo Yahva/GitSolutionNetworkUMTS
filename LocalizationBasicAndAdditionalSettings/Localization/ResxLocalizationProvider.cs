@@ -1,9 +1,9 @@
-﻿using LocalizationBasicAndAdditionalSettings.Resources;
+﻿using LocalizationBasicAndAdditionalSettingsUMTS.Resources;
 using System.Collections.Generic;
 using System.Globalization;
 
 
-namespace LocalizationBasicAndAdditionalSettings.Localization
+namespace LocalizationBasicAndAdditionalSettingsUMTS.Localization
 {
     /// <summary>
     /// Реализация поставщика локализованных строк через ресурсы приложения
