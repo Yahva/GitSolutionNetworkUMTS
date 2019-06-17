@@ -9,7 +9,7 @@
              x:Name="root"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
-    <Grid Background="LightGray">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -105,7 +105,7 @@
                                          SelectedIndex="0"
                                          ItemsSource="{Binding ElementName=root, Path=CurrentAdditionalSettingsInfo.ListRadioChannels}"/>
                     </GroupBox>
-                    <GroupBox Grid.Column="1" Margin="4 5" Width="150">
+                    <GroupBox Grid.Column="1" Margin="4 5" >
                         <GroupBox.Header>
                             <TextBlock Foreground="Blue"  Text="{l:Localization Key=use_cases}"/>
                         </GroupBox.Header>

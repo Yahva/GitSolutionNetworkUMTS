@@ -14,7 +14,7 @@
     <UserControl.Resources>
         <CollectionViewSource x:Key="CollectionLegitimateOperators" Source="{Binding ElementName=root, Path=ListLegitimateOperators}" />
     </UserControl.Resources>
-    <Grid Background="LightGray">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
