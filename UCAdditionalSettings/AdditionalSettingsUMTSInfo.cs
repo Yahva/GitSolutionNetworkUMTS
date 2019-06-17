@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UCAdditionalSettings
+namespace UCAdditionalSettingsUMTS
 {
-    public class AdditionalSettingsInfo : INotifyPropertyChanged, ICloneable
+    public class AdditionalSettingsUMTSInfo : INotifyPropertyChanged, ICloneable
     {
         #region ПАМ
         private DFVersion _dfVersion;
@@ -28,7 +28,7 @@ namespace UCAdditionalSettings
 
         public object Clone()
         {
-            AdditionalSettingsInfo CloneAdditionalSettingsInfo = this.MemberwiseClone() as AdditionalSettingsInfo;
+            AdditionalSettingsUMTSInfo CloneAdditionalSettingsInfo = this.MemberwiseClone() as AdditionalSettingsUMTSInfo;
 
             CloneAdditionalSettingsInfo.ListRadioChannels = new List<RadioChannel>();
             this.ListRadioChannels?.ForEach((item)=> CloneAdditionalSettingsInfo.ListRadioChannels.Add(item.Clone() as RadioChannel));

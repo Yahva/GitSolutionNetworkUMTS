@@ -4,15 +4,15 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace UCAdditionalSettings
+namespace UCAdditionalSettingsUMTS
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class UserControlAdditionalSettings : UserControl
+    public partial class UserControlAdditionalSettingsUMTS : UserControl
     {
         public IEnumerable<DFVersion> ListDFVersion { get; set; }
-        public UserControlAdditionalSettings()
+        public UserControlAdditionalSettingsUMTS()
         {
             InitializeComponent();
             ListDFVersion = Enum.GetValues(typeof(DFVersion)).Cast<DFVersion>();
@@ -20,13 +20,13 @@ namespace UCAdditionalSettings
         }
 
         #region DependencyPropertys
-        public AdditionalSettingsInfo CurrentAdditionalSettingsInfo
+        public AdditionalSettingsUMTSInfo CurrentAdditionalSettingsInfo
         {
-            get { return (AdditionalSettingsInfo)GetValue(CurrentAdditionalSettingsInfoProperty); }
+            get { return (AdditionalSettingsUMTSInfo)GetValue(CurrentAdditionalSettingsInfoProperty); }
             set { SetValue(CurrentAdditionalSettingsInfoProperty, value); }
         }
         public static readonly DependencyProperty CurrentAdditionalSettingsInfoProperty =
-            DependencyProperty.Register("CurrentAdditionalSettingsInfo", typeof(AdditionalSettingsInfo), typeof(UserControlAdditionalSettings), new UIPropertyMetadata(new AdditionalSettingsInfo()));
+            DependencyProperty.Register("CurrentAdditionalSettingsInfo", typeof(AdditionalSettingsUMTSInfo), typeof(UserControlAdditionalSettingsUMTS), new UIPropertyMetadata(new AdditionalSettingsUMTSInfo()));
 
 #endregion
     }

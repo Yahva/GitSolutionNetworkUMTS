@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using UCAdditionalSettings;
-using UCBasicSettings;
+using UCAdditionalSettingsUMTS;
+using UCBasicSettingsUMTS;
 
 namespace UCMainSettingsUMTS
 {
@@ -24,7 +24,7 @@ namespace UCMainSettingsUMTS
         private void SetUserControlsInfo()
         {
             #region Set UserControlSettingsRAN
-            CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo = new BasicSettingsInfo()
+            CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo = new BasicSettingsUMTSInfo()
             {
                 #region Оператор
                 MCC = 255,
@@ -70,7 +70,7 @@ namespace UCMainSettingsUMTS
             #endregion
 
             #region Set UserControlAdditionalSettings
-            CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo = new AdditionalSettingsInfo()
+            CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo = new AdditionalSettingsUMTSInfo()
             {
                 #region ПАМ
                 #endregion

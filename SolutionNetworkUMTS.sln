@@ -10,13 +10,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestApplication", "WpfTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A5C27989-2CAB-42EB-8FE8-B3DD1D429D9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCBasicSettings", "UCBasicSettings\UCBasicSettings.csproj", "{9C40B775-6A91-4799-AF0D-F0464D43A0F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCBasicSettingsUMTS", "UCBasicSettings\UCBasicSettingsUMTS.csproj", "{9C40B775-6A91-4799-AF0D-F0464D43A0F7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DFB88603-C597-4841-B2E8-64BC896240B0} = {DFB88603-C597-4841-B2E8-64BC896240B0}
 		{FA2B84D9-32F9-41E2-A5C2-3227E9EEE4B3} = {FA2B84D9-32F9-41E2-A5C2-3227E9EEE4B3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCAdditionalSettings", "UCAdditionalSettings\UCAdditionalSettings.csproj", "{DFB88603-C597-4841-B2E8-64BC896240B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCAdditionalSettingsUMTS", "UCAdditionalSettings\UCAdditionalSettingsUMTS.csproj", "{DFB88603-C597-4841-B2E8-64BC896240B0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0A0377A2-73DD-44AD-A961-E01ADCDCD65C} = {0A0377A2-73DD-44AD-A961-E01ADCDCD65C}
 	EndProjectSection

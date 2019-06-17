@@ -8,16 +8,16 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace UCBasicSettings
+namespace UCBasicSettingsUMTS
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class UserControlBasicSettings : UserControl
+    public partial class UserControlBasicSettingsUMTS : UserControl
     {
         public IEnumerable<TypeMode> ListMode { get; set; }
         public IEnumerable<TypeRedirection> ListRedirection { get; set; }
-        public UserControlBasicSettings()
+        public UserControlBasicSettingsUMTS()
         {
             InitializeComponent();
             ListMode = Enum.GetValues(typeof(TypeMode)).Cast<TypeMode>();
@@ -58,13 +58,13 @@ namespace UCBasicSettings
         #endregion
 
         #region DependencyPropertys
-        public BasicSettingsInfo CurrentBasicSettingsInfo
+        public BasicSettingsUMTSInfo CurrentBasicSettingsInfo
         {
-            get { return (BasicSettingsInfo)GetValue(CurrentBasicSettingsInfoProperty); }
+            get { return (BasicSettingsUMTSInfo)GetValue(CurrentBasicSettingsInfoProperty); }
             set { SetValue(CurrentBasicSettingsInfoProperty, value); }
         }
         public static readonly DependencyProperty CurrentBasicSettingsInfoProperty =
-            DependencyProperty.Register("CurrentBasicSettingsInfo", typeof(BasicSettingsInfo), typeof(UserControlBasicSettings), new UIPropertyMetadata(new BasicSettingsInfo()));
+            DependencyProperty.Register("CurrentBasicSettingsInfo", typeof(BasicSettingsUMTSInfo), typeof(UserControlBasicSettingsUMTS), new UIPropertyMetadata(new BasicSettingsUMTSInfo()));
 
         public IEnumerable<LegitimateOperator> ListLegitimateOperators
         {
@@ -72,7 +72,7 @@ namespace UCBasicSettings
             set { SetValue(ListLegitimateOperatorsProperty, value); }
         }
         public static readonly DependencyProperty ListLegitimateOperatorsProperty =
-            DependencyProperty.Register("ListLegitimateOperators", typeof(IEnumerable<LegitimateOperator>), typeof(UserControlBasicSettings), new UIPropertyMetadata(new List<LegitimateOperator>()));
+            DependencyProperty.Register("ListLegitimateOperators", typeof(IEnumerable<LegitimateOperator>), typeof(UserControlBasicSettingsUMTS), new UIPropertyMetadata(new List<LegitimateOperator>()));
 
 
         public bool HasError
@@ -81,7 +81,7 @@ namespace UCBasicSettings
             set { SetValue(HasErrorProperty, value); }
         }
         public static readonly DependencyProperty HasErrorProperty =
-            DependencyProperty.Register("HasError", typeof(bool), typeof(UserControlBasicSettings), new UIPropertyMetadata(false));
+            DependencyProperty.Register("HasError", typeof(bool), typeof(UserControlBasicSettingsUMTS), new UIPropertyMetadata(false));
         #endregion
 
         #region Validation
@@ -365,7 +365,7 @@ namespace UCBasicSettings
             if (value != null && value != DependencyProperty.UnsetValue)
             {
                 int valueDownlink = (int)value;
-                return UserControlBasicSettings.GetCommonNmaeByDownlink(valueDownlink);
+                return UserControlBasicSettingsUMTS.GetCommonNmaeByDownlink(valueDownlink);
             }
 
             return "";
@@ -388,7 +388,7 @@ namespace UCBasicSettings
         {
             int valueDownlink = 0;
             Int32.TryParse((string)value, out valueDownlink);           
-            return new object[2] { valueDownlink, UserControlBasicSettings.DownlinkToUplinkConveter(valueDownlink) };
+            return new object[2] { valueDownlink, UserControlBasicSettingsUMTS.DownlinkToUplinkConveter(valueDownlink) };
         }
     }
 

@@ -55,11 +55,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UCAdditionalSettings">
-      <HintPath>..\UCAdditionalSettings\bin\Debug\UCAdditionalSettings.dll</HintPath>
+    <Reference Include="UCAdditionalSettingsUMTS">
+      <HintPath>..\UCAdditionalSettings\bin\Debug\UCAdditionalSettingsUMTS.dll</HintPath>
     </Reference>
-    <Reference Include="UCBasicSettings">
-      <HintPath>..\UCBasicSettings\bin\Debug\UCBasicSettings.dll</HintPath>
+    <Reference Include="UCBasicSettingsUMTS">
+      <HintPath>..\UCBasicSettings\bin\Debug\UCBasicSettingsUMTS.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />

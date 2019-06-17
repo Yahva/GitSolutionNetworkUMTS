@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace UCBasicSettings
+namespace UCBasicSettingsUMTS
 {
     public class UplinkRule : ValidationRule
     {
@@ -16,7 +16,7 @@ namespace UCBasicSettings
         {
             decimal Uplink = (decimal)value;
 
-            if(Uplink != UserControlBasicSettings.DownlinkToUplinkConveter(Downlink)) return new ValidationResult(false, "Не соответствует Downlink");
+            if(Uplink != UserControlBasicSettingsUMTS.DownlinkToUplinkConveter(Downlink)) return new ValidationResult(false, "Не соответствует Downlink");
             return new ValidationResult(true, "");
         }
 

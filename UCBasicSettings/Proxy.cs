@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Threading;
 
-namespace UCBasicSettings
+namespace UCBasicSettingsUMTS
 {
     public class Proxy : FrameworkElement
     {

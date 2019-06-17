@@ -8,9 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UCBasicSettings
+namespace UCBasicSettingsUMTS
 {
-    public class BasicSettingsInfo : INotifyPropertyChanged, ICloneable
+    public class BasicSettingsUMTSInfo : INotifyPropertyChanged, ICloneable
     {
         #region Оператор
         private uint _mcc;
@@ -89,7 +89,7 @@ namespace UCBasicSettings
 
         public object Clone()
         {
-            BasicSettingsInfo CloneBasicSettingsInfo = this.MemberwiseClone() as BasicSettingsInfo;
+            BasicSettingsUMTSInfo CloneBasicSettingsInfo = this.MemberwiseClone() as BasicSettingsUMTSInfo;
 
             CloneBasicSettingsInfo.CollectionItemChannelNumberAndPSC = new ObservableCollection<ItemChannelNumberAndPSC>();
             this.CollectionItemChannelNumberAndPSC?.ForEach((item) => CloneBasicSettingsInfo.CollectionItemChannelNumberAndPSC.Add(item.Clone() as ItemChannelNumberAndPSC));

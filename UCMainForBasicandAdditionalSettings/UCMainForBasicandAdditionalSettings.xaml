@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UCMainSettingsUMTS"
              xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettings.Localization;assembly=LocalizationBasicAndAdditionalSettings"
-             xmlns:uc_bs_umts="clr-namespace:UCBasicSettings;assembly=UCBasicSettings"
-             xmlns:uc_as_umts="clr-namespace:UCAdditionalSettings;assembly=UCAdditionalSettings"
+             xmlns:uc_bs_umts="clr-namespace:UCBasicSettingsUMTS;assembly=UCBasicSettingsUMTS"
+             xmlns:uc_as_umts="clr-namespace:UCAdditionalSettingsUMTS;assembly=UCAdditionalSettingsUMTS"
              mc:Ignorable="d" 
              x:Name="root"
              d:DesignHeight="300" d:DesignWidth="600">
@@ -36,8 +36,8 @@
                     </StackPanel>
                 </dx:DXTabItem.Header>
                 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <uc_bs_umts:UserControlBasicSettings CurrentBasicSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         ListLegitimateOperators="{Binding ElementName=root, Path=ListLegitimateOperators, Mode=OneWay}"/>
+                    <uc_bs_umts:UserControlBasicSettingsUMTS CurrentBasicSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentBasicSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                             ListLegitimateOperators="{Binding ElementName=root, Path=ListLegitimateOperators, Mode=OneWay}"/>
                 </ScrollViewer>
             </dx:DXTabItem>
             <dx:DXTabItem>
@@ -48,7 +48,7 @@
                     </StackPanel>
                 </dx:DXTabItem.Header>
                 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <uc_as_umts:UserControlAdditionalSettings CurrentAdditionalSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <uc_as_umts:UserControlAdditionalSettingsUMTS CurrentAdditionalSettingsInfo="{Binding ElementName=root, Path=CurrentOptionsUMTSInfo.CurrentAdditionalSettingsInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </ScrollViewer>
             </dx:DXTabItem>
         </dx:DXTabControl>
