@@ -1,4 +1,5 @@
 ﻿
+using CommonClassLibraryForSolutionNetwork;
 using DevExpress.Xpf.Editors;
 using System;
 using System.Collections.Generic;
@@ -324,19 +325,7 @@ namespace UCBasicSettingsUMTS
         }
 
     }
-    public class LegitimateOperator
-    {
-        public uint MCC { get; set; }
-        public uint MNC { get; set; }
-
-        public string Сountry { get; set; }
-        public string MobileOperator { get; set; }
-
-        public override string ToString()
-        {
-            return String.Format(Сountry + "-" + MobileOperator + " ({0:D3} {1:D2})", MCC, MNC);
-        }
-    }
+   
     public class MSPowerIndBmConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
