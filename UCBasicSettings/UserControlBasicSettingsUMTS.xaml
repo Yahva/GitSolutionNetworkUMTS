@@ -183,7 +183,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsAutoRegulateMSPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <dxe:TextEdit Grid.Column="1" Grid.ColumnSpan="2" Tag="{l:Localization Key=autoselect}" Text="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}">
+                        <dxe:TextEdit Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="False"
+                                      NullText="{l:Localization Key=autoselect}">
                             <dxe:TextEdit.Style>
                                 <Style TargetType="dxe:TextEdit">
                                     <Style.Setters>
