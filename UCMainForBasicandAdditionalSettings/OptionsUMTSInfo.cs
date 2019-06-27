@@ -12,6 +12,12 @@ namespace UCMainSettingsUMTS
 {
     public class OptionsUMTSInfo : INotifyPropertyChanged, ICloneable
     {
+        public OptionsUMTSInfo()
+        {
+            CurrentBasicSettingsUMTSInfo = new BasicSettingsUMTSInfo();
+            CurrentAdditionalSettingsUMTSInfo = new AdditionalSettingsUMTSInfo();
+        }
+
         BasicSettingsUMTSInfo _currentBasicSettingsUMTSInfo;
         AdditionalSettingsUMTSInfo _currentAdditionalSettingsUMTSInfo;
 
