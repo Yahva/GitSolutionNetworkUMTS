@@ -30,7 +30,7 @@ namespace UCBasicSettingsUMTS
         #region SetUnsetValidation
         private void ClearInvalidSpinEdit(object sender, DependencyPropertyChangedEventArgs e)
         {
-            BindingExpression bex = (sender as SpinEdit).GetBindingExpression(SpinEdit.ValueProperty);
+            BindingExpression bex = (sender as SpinEdit).GetBindingExpression(SpinEdit.TextProperty);
             ClearInvalidValue((bool)e.NewValue, (bool)e.OldValue, bex);
         }
 

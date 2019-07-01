@@ -9,6 +9,7 @@
              xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettingsUMTS.Localization;assembly=LocalizationBasicAndAdditionalSettingsUMTS"  
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
              xmlns:common_lib="clr-namespace:CommonClassLibraryForSolutionNetwork.LegitimateOperator;assembly=CommonClassLibraryForSolutionNetwork"
+             xmlns:common_lib_valid_rule="clr-namespace:CommonClassLibraryForSolutionNetwork;assembly=CommonClassLibraryForSolutionNetwork"
              mc:Ignorable="d" 
              x:Name="root"
              Validation.Error="UserControl_HasError"   
@@ -584,14 +585,13 @@
                                                AllowNullInput="True" 
                                                IsEnabled="{Binding ElementName=root, Path=CurrentBasicSettingsUMTSInfo.IsSetSpecifyFrequencyChannel}"
                                                IsEnabledChanged="ClearInvalidSpinEdit">
-                                    <dxe:SpinEdit.Value>
+                                    <dxe:SpinEdit.Text>
                                         <Binding ElementName="root" Path="CurrentBasicSettingsUMTSInfo.FrequensyChannel" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" >
                                             <Binding.ValidationRules>
-                                                <local:FrequencyRule/>
-                                                <ExceptionValidationRule/>
+                                                <common_lib_valid_rule:FrequencyRule/>
                                             </Binding.ValidationRules>
                                         </Binding>
-                                    </dxe:SpinEdit.Value>
+                                    </dxe:SpinEdit.Text>
                                 </dxe:SpinEdit>
                             </DockPanel>
                             <DockPanel  HorizontalAlignment="Stretch" Margin="5 5">

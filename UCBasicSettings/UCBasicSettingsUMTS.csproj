@@ -83,7 +83,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="FrequencyRule.cs" />
     <Compile Include="Proxy.cs" />
     <Compile Include="UplinkRule.cs" />
     <Compile Include="UserControlBasicSettingsUMTS.xaml.cs">
