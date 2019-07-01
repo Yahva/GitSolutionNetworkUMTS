@@ -50,6 +50,12 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UCAdditionalSettingsUMTS">
+      <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\UCAdditionalSettingsUMTS.dll</HintPath>
+    </Reference>
+    <Reference Include="UCBasicSettingsUMTS">
+      <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\UCBasicSettingsUMTS.dll</HintPath>
+    </Reference>
     <Reference Include="UCMainSettingsUMTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\UCMainSettingsUMTS.dll</HintPath>

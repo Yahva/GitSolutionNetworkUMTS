@@ -8,7 +8,7 @@
              xmlns:sw="clr-namespace:SliderWeakening;assembly=SliderWeakening"
              xmlns:l="clr-namespace:LocalizationBasicAndAdditionalSettingsUMTS.Localization;assembly=LocalizationBasicAndAdditionalSettingsUMTS"  
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-             xmlns:common_lib="clr-namespace:CommonClassLibraryForSolutionNetwork;assembly=CommonClassLibraryForSolutionNetwork"
+             xmlns:common_lib="clr-namespace:CommonClassLibraryForSolutionNetwork.LegitimateOperator;assembly=CommonClassLibraryForSolutionNetwork"
              mc:Ignorable="d" 
              x:Name="root"
              Validation.Error="UserControl_HasError"   

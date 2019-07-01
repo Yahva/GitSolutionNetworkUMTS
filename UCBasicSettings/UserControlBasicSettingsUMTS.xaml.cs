@@ -1,5 +1,6 @@
 ﻿
-using CommonClassLibraryForSolutionNetwork;
+using CommonClassLibraryForSolutionNetwork.DataStructures.OptionsInfo.ViewModelUMTS;
+using CommonClassLibraryForSolutionNetwork.LegitimateOperator;
 using DevExpress.Xpf.Editors;
 using System;
 using System.Collections.Generic;

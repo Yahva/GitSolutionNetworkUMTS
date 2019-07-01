@@ -75,7 +75,6 @@
     <Compile Include="AddDirectChannelWindow.xaml.cs">
       <DependentUpon>AddDirectChannelWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BasicSettingsUMTSInfo.cs" />
     <Page Include="AddDirectChannelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

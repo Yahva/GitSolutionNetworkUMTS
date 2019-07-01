@@ -111,7 +111,7 @@
                         </GroupBox.Header>
                         <dxe:ListBoxEdit ItemsSource="{Binding ElementName=ListBoxEdit_ListRadioChannels, Path=SelectedItem.ListUseCasesChannel}">
                             <dxe:ListBoxEdit.ItemTemplate>
-                                <DataTemplate DataType="{x:Type local:UseCasesChannel}">
+                                <DataTemplate>
                                     <dxe:CheckEdit IsChecked="{Binding Path=IsUse, Mode=TwoWay}" Content="{l:Localization KeyBinding={Binding Path=TypeUseCase}}"/>
                                 </DataTemplate>
                             </dxe:ListBoxEdit.ItemTemplate>

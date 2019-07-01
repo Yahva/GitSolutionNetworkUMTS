@@ -76,7 +76,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="OptionsUMTSInfo.cs" />
     <Compile Include="VMUCMainSettingsUMTS.cs" />
     <Compile Include="UCMainForBasicandAdditionalSettings.xaml.cs">
       <DependentUpon>UCMainForBasicandAdditionalSettings.xaml</DependentUpon>

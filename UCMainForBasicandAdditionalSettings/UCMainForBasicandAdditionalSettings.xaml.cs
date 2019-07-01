@@ -1,11 +1,10 @@
-﻿using CommonClassLibraryForSolutionNetwork;
+﻿using CommonClassLibraryForSolutionNetwork.DataStructures.OptionsInfo.ViewModelUMTS;
+using CommonClassLibraryForSolutionNetwork.LegitimateOperator;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using UCAdditionalSettingsUMTS;
-using UCBasicSettingsUMTS;
 
 namespace UCMainSettingsUMTS
 {

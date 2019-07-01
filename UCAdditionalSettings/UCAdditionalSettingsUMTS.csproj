@@ -67,7 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AdditionalSettingsUMTSInfo.cs" />
     <Compile Include="UserControlAdditionalSettingsUMTS.xaml.cs">
       <DependentUpon>UserControlAdditionalSettingsUMTS.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -96,6 +95,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonClassLibraryForSolutionNetwork\CommonClassLibraryForSolutionNetwork\CommonClassLibraryForSolutionNetwork.csproj">
+      <Project>{6893D90B-4E13-4C35-826F-1F0EAC95AC62}</Project>
+      <Name>CommonClassLibraryForSolutionNetwork</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
