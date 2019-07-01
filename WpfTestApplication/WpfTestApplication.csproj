@@ -36,11 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LocalizationBasicAndAdditionalSettings">
-      <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\LocalizationBasicAndAdditionalSettings.dll</HintPath>
-    </Reference>
     <Reference Include="SliderWeakening">
-      <HintPath>..\SliderWeakening\SliderWeakening\bin\Debug\SliderWeakening.dll</HintPath>
+      <HintPath>..\..\SliderWeakening\SliderWeakening\bin\Debug\SliderWeakening.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -53,7 +50,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UCMainSettingsUMTS">
+    <Reference Include="UCMainSettingsUMTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\UCMainForBasicandAdditionalSettings\bin\Debug\UCMainSettingsUMTS.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />

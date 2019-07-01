@@ -46,7 +46,7 @@
       <HintPath>..\LocalizationBasicAndAdditionalSettings\bin\Debug\LocalizationBasicAndAdditionalSettingsUMTS.dll</HintPath>
     </Reference>
     <Reference Include="SliderWeakening">
-      <HintPath>..\SliderWeakening\SliderWeakening\bin\Debug\SliderWeakening.dll</HintPath>
+      <HintPath>..\..\SliderWeakening\SliderWeakening\bin\Debug\SliderWeakening.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
